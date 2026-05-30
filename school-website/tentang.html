@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - Pondok Pesantren La Tansa 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <style>
+        /* RESET & BASE */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #fdfefe; color: #2b3a33; padding-top: 100px; line-height: 1.8; overflow-x: hidden; font-size: 16px; }
+        h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; }
+        .container { width: 90%; max-width: 1200px; margin: auto; }
+
+        /* NAVBAR SERAGAM */
+        nav { position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(13, 59, 46, 0.95); backdrop-filter: blur(15px); box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-bottom: none !important; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
+        
+        .logo-container { display: flex; align-items: center; gap: 12px; color: white; font-weight: 700; font-size: 22px; text-decoration: none; animation: slideInLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+        .logo-container img { height: 48px; width: auto; object-fit: contain; }
+        .logo { font-weight: 600; color: white; }
+        .logo span { color: #D4AF37; font-weight: 700; }
+
+        @keyframes slideInLeft {
+            0% { opacity: 0; transform: translateX(-40px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        .menu { display: flex; gap: 10px; align-items: center; }
+        .menu a { color: rgba(255,255,255,0.85); font-weight: 500; font-size: 15px; padding: 8px 16px; border-radius: 8px; transition: all 0.3s ease; }
+        .menu a:hover, .menu a.active { background: rgba(255, 255, 255, 0.15); color: #D4AF37; }
+
+        /* DROPDOWN CSS */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #ffffff; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 8px; top: 100%; left: 0; padding: 10px 0; z-index: 1001; }
+        .dropdown-content a { color: #0d3b2e !important; display: block; padding: 10px 20px !important; font-size: 14px !important; font-weight: 500 !important; }
+        .dropdown-content a:hover { background-color: #f4f7f5; color: #198754 !important; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* KONTEN HALAMAN (Dibersihkan dan Dibuat Lebih Menarik) */
+        .content-box { background: white; padding: 50px; border-radius: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.04); margin-top: 30px; border: 1px solid #f0f2f1; }
+        .main-heading { color: #0d3b2e; font-size: 34px; border-bottom: 3px solid #D4AF37; padding-bottom: 10px; margin-bottom: 25px; display: inline-block; }
+        .main-desc { font-size: 16px; text-align: justify; color: #444; line-height: 1.9; margin-bottom: 40px; }
+
+        .grid-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .info-card { padding: 30px; border-radius: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .info-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+        .info-card h3 { font-size: 20px; margin-bottom: 15px; }
+        .info-card p { text-align: justify; font-size: 15px; line-height: 1.7; }
+
+        /* Kartu Biasa */
+        .card-regular { background: white; border: 1px solid #eef1f0; }
+        .card-regular h3 { color: #0d3b2e; }
+        .card-regular p { color: #555; }
+        
+        /* Kartu Dashed (Kamar Terpimpin) */
+        .card-dashed { background: #f4f7f5; border: 1px dashed #1f8f5f; }
+        .card-dashed h3 { color: #0d3b2e; }
+        .card-dashed p { color: #555; }
+
+        /* Kartu Highlight (Standarisasi Pengajar) */
+        .highlight-card { background: linear-gradient(135deg, #0d3b2e, #1f8f5f); color: white; border: none; }
+        .highlight-card h3 { color: #D4AF37; }
+        .highlight-card p { opacity: 0.9; margin-bottom: 15px; }
+        .highlight-card ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 13px; font-weight: 600; padding: 0; }
+        .highlight-card ul li { display: flex; align-items: center; gap: 8px; }
+
+        footer { background: #07221a; color: rgba(255,255,255,0.7); text-align: center; padding: 30px 0; margin-top: 80px; }
+
+        @media(max-width: 768px) {
+            .navbar { flex-direction: column; gap: 15px; }
+            .menu { flex-wrap: wrap; justify-content: center; }
+            .content-box { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container navbar">
+            <a href="index.html" class="logo-container">
+                <img src="logo.png" alt="Logo La Tansa 2">
+                <div class="logo">Pondok Pesantren La Tansa <span>2</span></div>
+            </a>
+            <div class="menu">
+                <a href="index.html">Home</a>
+                
+                <!-- Dropdown Menu -->
+                <div class="dropdown">
+                    <a href="tentang.html" class="active">Tentang <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i></a>
+                    <div class="dropdown-content">
+                        <a href="sejarah.html">Sejarah Berdirinya</a>
+                        <a href="pimpinan.html">Profil Pimpinan</a>
+                        <a href="visi-misi.html">Visi & Misi</a>
+                    </div>
+                </div>
+
+                <a href="program.html">Program</a>
+                <a href="galeri.html">Galeri</a>
+                <a href="pendaftaran.html">Alur Pendaftaran</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content-box" data-aos="fade-up" data-aos-duration="800">
+            <h2 class="main-heading">Mengenal Lebih Dekat La Tansa 2</h2>
+            <p class="main-desc">
+                Pondok Pesantren La Tansa 2 berdiri megah di sebuah lembah luas yang berdomisili tepat di tengah-tengah kota Rangkasbitung. Dengan letak strategis tersebut, akses arus transportasi sangat mudah dijangkau dari berbagai wilayah. Kampus ini didesain berdampingan dengan Universitas La Tansa Mashiro, menciptakan iklim akademik keagamaan yang asri, nyaman, rekreatif, dan sangat representatif untuk mendalami ilmu agama Islam.
+            </p>
+
+            <div class="grid-info">
+                <!-- Kartu 1 -->
+                <div class="info-card card-regular" data-aos="fade-up" data-aos-delay="100">
+                    <h3><i class="fa-solid fa-sitemap"></i> Nasab Pendirian Lembaga</h3>
+                    <p>
+                        Lembaga mulia ini dilahirkan langsung oleh rahim institusi induk terkemuka, yaitu <strong>Pondok Pesantren Daar El-Qolam Gintung</strong>, Jayanti, Tangerang. Kelahiran La Tansa 2 ditujukan sebagai pengembangan wawasan pendidikan serta perluasan daya tampung pengajaran dengan sistem kurikulum terpadu demi memenuhi hajat besar umat Islam.
+                    </p>
+                </div>
+                
+                <!-- Kartu 2 -->
+                <div class="info-card card-dashed" data-aos="fade-up" data-aos-delay="200">
+                    <h3><i class="fa-solid fa-hotel"></i> Sistem Kamar Terpimpin</h3>
+                    <p>
+                        Keunggulan utama kami terletak pada sistem pengawasan asrama yang melekat. Setiap kamar santri difasilitasi dengan adanya <strong>Ustadz/Ustadzah yang tinggal menyatu di dalam kamar</strong>. Hal ini menjamin bimbingan ibadah, disiplin bahasa resmi (Arab/Inggris), serta keamanan santri terpantau penuh selama 24 jam.
+                    </p>
+                </div>
+                
+                <!-- Kartu 3 -->
+                <div class="info-card highlight-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3><i class="fa-solid fa-graduation-cap"></i> Standarisasi Pengajar</h3>
+                    <p>Seluruh jajaran ustadz pembimbing didatangkan murni dari pondok alumni modern legendaris serta universitas berkualitas tinggi:</p>
+                    <ul>
+                        <li><i class="fa-solid fa-check" style="color:#D4AF37;"></i> Ponpes Gontor</li>
+                        <li><i class="fa-solid fa-check" style="color:#D4AF37;"></i> Daar El-Qolam</li>
+                        <li><i class="fa-solid fa-check" style="color:#D4AF37;"></i> Ponpes La Tansa</li>
+                        <li><i class="fa-solid fa-check" style="color:#D4AF37;"></i> UIN Jakarta</li>
+                        <li><i class="fa-solid fa-check" style="color:#D4AF37;"></i> UIN SMH Banten</li>
+                        <li><i class="fa-solid fa-check" style="color:#D4AF37;"></i> Untirta</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer><p>© 2026 Pondok Pesantren La Tansa 2 | Profil Terintegrasi</p></footer>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true });
+    </script>
+</body>
+</html>

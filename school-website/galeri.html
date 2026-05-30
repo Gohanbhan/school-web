@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Kebersamaan - Pondok Pesantren La Tansa 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <style>
+        /* Reset Global */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #fdfefe; color: #2b3a33; padding-top: 100px; line-height: 1.8; overflow-x: hidden; font-size: 16px; }
+        h2, h4 { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; }
+
+        .container { width: 90%; max-width: 1200px; margin: auto; }
+        
+        /* Navbar */
+        nav { position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(13, 59, 46, 0.95); backdrop-filter: blur(15px); box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 0; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
+        
+        /* Animasi Fade In & Bergerak dari Kiri ke Kanan untuk Logo */
+        .logo-container { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            color: white; 
+            font-weight: 700; 
+            font-size: 22px; 
+            text-decoration: none;
+            animation: slideInLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+        .logo-container img { height: 48px; width: auto; object-fit: contain; }
+        
+        .logo { font-weight: 600; color: white; }
+        .logo span { color: #D4AF37; font-weight: 700; }
+
+        .menu { display: flex; gap: 10px; align-items: center; }
+        .menu a { 
+            color: rgba(255,255,255,0.85); 
+            font-weight: 500; 
+            font-size: 15px; 
+            padding: 8px 16px; 
+            border-radius: 8px; 
+            transition: all 0.3s ease; 
+        }
+        .menu a:hover { 
+            background: rgba(255, 255, 255, 0.15); 
+            color: #D4AF37; 
+        }
+        .menu a.active { color: #D4AF37; font-weight: 600; }
+
+        /* DROPDOWN CSS (Ditambahkan sesuai pendaftaran.html) */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content {
+            display: none; position: absolute; background-color: #ffffff; min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 8px; top: 100%; left: 0; padding: 10px 0; z-index: 1001;
+        }
+        .dropdown-content a { color: #0d3b2e !important; display: block; padding: 10px 20px !important; font-size: 14px !important; font-weight: 500 !important; }
+        .dropdown-content a:hover { background-color: #f4f7f5; color: #198754 !important; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* Keyframes Animasi Jalan dari Kiri ke Kanan */
+        @keyframes slideInLeft {
+            0% { opacity: 0; transform: translateX(-40px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .gallery-item { overflow: hidden; border-radius: 24px; height: 300px; box-shadow: 0 12px 35px rgba(0,0,0,0.06); position: relative; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
+        
+        .gallery-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(13, 59, 46, 0.95), rgba(0, 0, 0, 0.2)); display: flex; align-items: flex-end; padding: 25px; opacity: 0; transition: all 0.4s ease; }
+        .overlay-text { transform: translateY(30px); transition: transform 0.4s ease; color: white; }
+        .overlay-text h4 { font-size: 20px; color: #D4AF37; margin-bottom: 8px; font-weight: 700; }
+        .overlay-text p { font-size: 14px; line-height: 1.5; opacity: 0.9; }
+        
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-item:hover .overlay-text { transform: translateY(0); }
+        
+        footer { background: #07221a; color: rgba(255,255,255,0.7); text-align: center; padding: 30px 0; margin-top: 80px; }
+
+        /* --- TAMBAHAN UNTUK RESPONSIVE DI HP --- */
+        @media(max-width: 768px) {
+            .navbar { flex-direction: column; gap: 15px; }
+            .menu { flex-wrap: wrap; justify-content: center; }
+            
+            /* Sub-judul menyesuaikan layar HP */
+            .sub-desc { padding: 0 15px; font-size: 14px; }
+
+            /* PERBAIKAN GALERI DI HP (Keterangan selalu muncul) */
+            .gallery-overlay { 
+                opacity: 1 !important; 
+                background: linear-gradient(to top, rgba(13, 59, 46, 0.95), transparent) !important;
+            }
+            .overlay-text { 
+                transform: translateY(0) !important; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container navbar">
+            <a href="index.html" class="logo-container">
+                <img src="logo.png" alt="Logo La Tansa 2">
+                <div class="logo">Pondok Pesantren La Tansa <span>2</span></div>
+            </a>
+            <div class="menu">
+                <a href="index.html">Home</a>
+                
+                <!-- DROPDOWN HTML (Ditambahkan sesuai pendaftaran.html) -->
+                <div class="dropdown">
+                    <a href="tentang.html">Tentang <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
+                    <div class="dropdown-content">
+                        <a href="sejarah.html">Sejarah Berdirinya</a>
+                        <a href="pimpinan.html">Profil Pimpinan</a>
+                        <a href="visi-misi.html">Visi & Misi</a>
+                    </div>
+                </div>
+
+                <a href="program.html">Program</a>
+                <a href="galeri.html" class="active">Galeri</a>
+                <a href="pendaftaran.html">Alur Pendaftaran</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" data-aos="fade-up">
+        <h2 style="color: #0d3b2e; font-size: 36px; text-align: center; margin-top: 20px;">Dokumentasi Penuh Aktivitas & Lingkungan</h2>
+        <p class="sub-desc" style="text-align: center; color: #666; margin-top: 5px;">Arahkan kursor pada gambar untuk melihat penjelasan lengkap dari setiap momentum kegiatan di pondok.</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=1200&auto=format&fit=crop">
+                <div class="gallery-overlay"><div class="overlay-text"><h4>KBM Formal Terpadu</h4><p>Mengasah potensi akademik sains dan sosial berstandar nasional di ruang kelas modern.</p></div></div>
+            </div>
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?q=80&w=1200&auto=format&fit=crop">
+                <div class="gallery-overlay"><div class="overlay-text"><h4>Muhadhoroh Mingguan</h4><p>Latihan berpidato tiga bahasa guna mencetak mental orator andal yang siap memimpin umat.</p></div></div>
+            </div>
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop">
+                <div class="gallery-overlay"><div class="overlay-text"><h4>Kajian Kitab Turats</h4><p>Pendalaman khazanah keilmuan Islam klasik bersama jajaran dewan guru ahli fikih dan tafsir.</p></div></div>
+            </div>
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop">
+                <div class="gallery-overlay"><div class="overlay-text"><h4>Kebersamaan di Asrama</h4><p>Memupuk rasa ukhuwah islamiyah dan kedisiplinan hidup mandiri sepanjang 24 jam pembinaan.</p></div></div>
+            </div>
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="500">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
+                <div class="gallery-overlay"><div class="overlay-text"><h4>Praktikum Laboratorium</h4><p>Fasilitas komparasi digital komputer untuk menunjang kecakapan teknologi informasi santri.</p></div></div>
+            </div>
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="600">
+                <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1200&auto=format&fit=crop">
+                <div class="gallery-overlay"><div class="overlay-text"><h4>Seni Bela Diri</h4><p>Olah fisik dan ketangkasan melalui latihan pencak silat Tapak Suci untuk kesehatan jasmani.</p></div></div>
+            </div>
+        </div>
+    </div>
+
+    <footer><p>© 2026 Pondok Pesantren La Tansa 2 | Dokumentasi Resmi Terintegrasi</p></footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ once: true });</script>
+</body>
+</html>

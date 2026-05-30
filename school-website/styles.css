@@ -1,0 +1,719 @@
+/* ==========================================================================
+   RESET GLOBAL & CORE STYLE
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fdfefe;
+  color: #2b3a33;
+  line-height: 1.8;
+  overflow-x: hidden;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+section {
+  padding: 100px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title h2 {
+  font-size: 38px;
+  color: #0d3b2e;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.section-title p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* ==========================================================================
+   NAVBAR, MENU, & IDENTITAS LOGO
+   ========================================================================== */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: rgba(13, 59, 46, 0.95);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.logo-container img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo {
+  font-weight: 600;
+  color: white;
+}
+
+/* Mengunci warna angka 2 agar selalu kuning emas di setiap page */
+.logo span {
+  color: #D4AF37;
+  font-weight: 700;
+}
+
+.menu {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.menu a {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  font-size: 15px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Efek kotak abu-abu soft melengkung saat kursor menyorot menu navigasi */
+.menu a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #D4AF37;
+}
+
+.menu a.active {
+  color: #D4AF37;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   HERO & TOMBOL AKSI
+   ========================================================================== */
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, rgba(13, 59, 46, 0.85), rgba(31, 143, 95, 0.75)), url('https://images.unsplash.com/photo-1519452575417-564c1401ecc0?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-content {
+  width: 100%;
+}
+
+.hero h1 {
+  font-size: 58px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 24px;
+  color: #D4AF37;
+  font-weight: 600;
+  margin: auto;
+  margin-bottom: 40px;
+  max-width: 750px;
+  letter-spacing: 1px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 35px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.4s ease;
+  margin: 8px;
+}
+
+.btn-primary {
+  background: #198754;
+  color: white;
+  box-shadow: 0 0 20px rgba(25, 135, 84, 0.4);
+}
+
+.btn-primary:hover {
+  background: #146c43;
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(25, 135, 84, 0.6);
+}
+
+.btn-secondary {
+  border: 2px solid #D4AF37;
+  color: #D4AF37;
+}
+
+.btn-secondary:hover {
+  background: #D4AF37;
+  color: #111;
+}
+
+/* ==========================================================================
+   TENTANG KAMI & GRID INFORMASI
+   ========================================================================== */
+.content-box {
+  background: white;
+  padding: 50px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  margin-top: 30px;
+  border: 1px solid #f0f2f1;
+}
+
+.about-text h3 {
+  font-size: 32px;
+  color: #0d3b2e;
+  margin-bottom: 20px;
+}
+
+.grid-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.grid-info p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.7;
+}
+
+.grid-info ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Penataan khusus kotak keunggulan kamar asrama terpimpin */
+.kamar-terpimpin-card {
+  background: #f4f7f5;
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px dashed #1f8f5f;
+}
+
+.highlight-card {
+  background: linear-gradient(135deg, #0d3b2e, #1f8f5f);
+  color: white;
+  padding: 25px;
+  border-radius: 20px;
+}
+
+/* ==========================================================================
+   FLOATING STATISTICS & VIDEO PROFILE
+   ========================================================================== */
+.stats {
+  background: #f4f7f5;
+  padding: 60px 0;
+  margin-top: -50px;
+  position: relative;
+  z-index: 10;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+
+.stat-box {
+  background: white;
+  padding: 35px 25px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(13, 59, 46, 0.06);
+  transition: 0.4s ease;
+}
+
+.stat-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(13, 59, 46, 0.12);
+}
+
+.stat-box i {
+  font-size: 38px;
+  color: #1f8f5f;
+  margin-bottom: 15px;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+
+.stat-box h3, .stat-box span {
+  font-size: 38px;
+  font-weight: 700;
+  color: #0d3b2e;
+}
+
+.stat-box p {
+  font-size: 16px;
+  color: #666;
+  font-weight: 500;
+}
+
+.video-profile {
+  background: #0d3b2e;
+  color: white;
+  text-align: center;
+}
+
+.video-wrapper {
+  max-width: 850px;
+  margin: auto;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ==========================================================================
+   PROGRAM TABEL (Z-SHAPE ROW TO DOWN)
+   ========================================================================== */
+.program-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  margin-top: 50px;
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+  border: 1px solid #eef1f0;
+}
+
+.program-img-box {
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 12px 25px rgba(13, 59, 46, 0.08);
+}
+
+.program-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.program-row:hover .program-img-box img {
+  transform: scale(1.04);
+}
+
+.card-program h4 {
+  color: #0d3b2e;
+  font-size: 26px;
+  margin-bottom: 20px;
+  border-left: 4px solid #D4AF37;
+  padding-left: 10px;
+}
+
+.table-jadwal {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.table-jadwal td {
+  padding: 12px;
+  border-bottom: 1px solid #eef1f0;
+}
+
+.time-tag {
+  font-weight: 600;
+  color: #198754;
+  background: #eef7f2;
+  padding: 4px 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   BASIS SEBARAN ALUMNI
+   ========================================================================== */
+.alumni-box {
+  background: #f4f7f5;
+  padding: 50px 0;
+  text-align: center;
+  border-top: 1px solid #eef1f0;
+  border-bottom: 1px solid #eef1f0;
+}
+
+.alumni-box h4 {
+  color: #0d3b2e;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.alumni-box p {
+  font-size: 16px;
+  color: #666;
+}
+
+.alumni-list {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #198754;
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   GALERI KEBERSAMAAN INTERAKTIF (OVERLAY DESCRIPTION)
+   ========================================================================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 20px;
+  height: 280px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s ease;
+}
+
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(13, 59, 46, 0.95), rgba(0, 0, 0, 0.2));
+  display: flex;
+  align-items: flex-end;
+  padding: 25px;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.overlay-text {
+  transform: translateY(30px);
+  transition: transform 0.4s ease;
+  color: white;
+}
+
+.overlay-text h4 {
+  font-size: 20px;
+  color: #D4AF37;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.overlay-text p {
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* Efek Sorot Hover Galeri Deskripsi Melayang */
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-item:hover .overlay-text {
+  transform: translateY(0);
+}
+
+.show-all-box {
+  text-align: center;
+  margin-top: 45px;
+}
+
+.btn-show-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 35px;
+  background: transparent;
+  color: #0d3b2e;
+  border: 2px solid #0d3b2e;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.btn-show-all:hover {
+  background: #0d3b2e;
+  color: white;
+  box-shadow: 0 10px 20px rgba(13, 59, 46, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   HALAMAN PENDAFTARAN & STRUKTUR TABEL
+   ========================================================================== */
+.grid-biaya {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.card-biaya {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid #eef1f0;
+}
+
+.card-biaya h4 {
+  background: #f4f7f5;
+  padding: 10px;
+  border-radius: 10px;
+  color: #0d3b2e;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #eef1f0;
+  text-align: left;
+}
+
+/* Memaksa baris total harga jumlah pendaftaran tetap rata lurus mendatar */
+.total-row td {
+  font-weight: 700;
+  color: #146c43;
+  background: #eef7f2;
+  white-space: nowrap;
+}
+
+.cta-box {
+  margin-top: 40px;
+  background: linear-gradient(135deg, #0d3b2e, #146c43);
+  padding: 40px;
+  border-radius: 25px;
+  color: white;
+  text-align: center;
+}
+
+.cta-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-wa {
+  background: #25D366;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+/* ==========================================================================
+   FOOTER UTAMA
+   ========================================================================== */
+footer {
+  background: linear-gradient(135deg, #07221a, #0d3b2e);
+  color: rgba(255,255,255,0.75);
+  padding: 70px 0 30px 0;
+  font-size: 15px;
+  text-align: left; /* Mengubah rata tengah default menjadi kiri agar grid rapi */
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-col h4 {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 20px;
+  position: relative;
+  font-weight: 600;
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 40px;
+  height: 2px;
+  background: #D4AF37;
+}
+
+.footer-links a {
+  display: block;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 12px;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #D4AF37;
+  padding-left: 5px;
+}
+
+.social-icons a {
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+  background: rgba(255,255,255,0.06);
+  color: white;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+  margin-right: 10px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  background: #D4AF37;
+  color: #07221a;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (HP MOBILE / TABLET)
+   ========================================================================== */
+@media(max-width: 992px) {
+  .program-row {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 25px;
+  }
+  .program-row .order-mobile {
+    order: -1;
+  }
+  .program-img-box {
+    height: 280px;
+  }
+}
+
+@media(max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+  
+  .grid-biaya {
+    grid-template-columns: 1fr;
+  }
+  
+  footer {
+    text-align: center;
+  }
+  
+  .footer-col h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
