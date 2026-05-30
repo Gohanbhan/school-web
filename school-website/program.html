@@ -56,18 +56,15 @@
         .program-img-box { width: 100%; height: 400px; overflow: hidden; border-radius: 20px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1); position: relative; }
         .program-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .program-row:hover .program-img-box img { transform: scale(1.08); }
-        /* Overlay gradasi transparan pada gambar agar terlihat sinematik */
         .program-img-box::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(13,59,46,0.3), transparent); border-radius: 20px; pointer-events: none; }
 
         .card-program h4 { color: #0d3b2e; font-size: 26px; margin-bottom: 20px; border-left: 4px solid #D4AF37; padding-left: 12px; line-height: 1.3; }
         .card-program p { font-size: 15px; color: #555; margin-bottom: 20px; text-align: justify; line-height: 1.7; }
         
-        /* Tabel Jadwal Lebih Modern */
         .table-jadwal { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px; line-height: 1.7; }
         .table-jadwal td { padding: 15px 12px; border-bottom: 1px dashed #eef1f0; }
         .table-jadwal tr:last-child td { border-bottom: none; }
         
-        /* Badge Waktu Emas */
         .time-tag { font-weight: 700; color: white; background: #D4AF37; padding: 6px 14px; border-radius: 8px; display: inline-block; font-size: 13px; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); }
         
         footer { background: #07221a; color: rgba(255,255,255,0.7); text-align: center; padding: 30px 0; margin-top: 80px; }
@@ -78,44 +75,25 @@
         @media (max-width: 992px) {
             .program-row, .lembaga-grid { grid-template-columns: 1fr; gap: 30px; }
             .program-row { padding: 30px 20px; }
-            .program-row .order-mobile { order: -1; } /* Gambar pindah ke atas di mobile */
+            .program-row .order-mobile { order: -1; }
             .program-img-box { height: 300px; }
         }
 
         @media (max-width: 768px) {
-            /* Navbar menumpuk rapi di HP */
-            .navbar { 
-                flex-direction: column !important; 
-                gap: 15px !important; 
-                padding: 15px 0 !important;
-            }
-            .logo-container { 
-                width: 100%; 
-                justify-content: center; 
-                animation: none !important; /* Matikan animasi di HP agar mulus */
-            }
-            .menu { 
-                flex-wrap: wrap !important; 
-                justify-content: center !important; 
-                gap: 5px !important;
-                width: 100%;
-            }
+            /* PERBAIKAN: Padding top ditambah agar tidak nabrak menu */
+            body { padding-top: 220px !important; }
+
+            .navbar { flex-direction: column !important; gap: 15px !important; padding: 15px 0 !important; }
+            .logo-container { width: 100%; justify-content: center; animation: none !important; }
+            .menu { flex-wrap: wrap !important; justify-content: center !important; gap: 5px !important; width: 100%; }
             
-            /* Konten menyesuaikan layar kecil */
             h2 { font-size: 28px !important; margin-bottom: 20px !important; }
             .lembaga-card { padding: 30px 20px; }
             .card-program h4 { font-size: 22px; }
             .program-img-box { height: 250px; }
             
-            /* List Ekstrakurikuler jadi 1 kolom di HP yang sempit */
             .card-program ul { grid-template-columns: 1fr !important; }
-            
-            /* Tabel jadwal responsif (scroll horizontal jika layar terlalu sempit) */
-            .table-responsive {
-                width: 100%;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
+            .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
             .table-jadwal { min-width: 400px; }
         }
     </style>
@@ -129,7 +107,6 @@
             </a>
             <div class="menu">
                 <a href="index.html">Home</a>
-                <!-- Dropdown Menu -->
                 <div class="dropdown">
                     <a href="tentang.html">Tentang <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
                     <div class="dropdown-content">
@@ -148,7 +125,6 @@
     <div class="container">
         <h2 style="color: #0d3b2e; font-size: 36px; text-align: center; margin-top: 40px; margin-bottom: 30px;" data-aos="fade-down">Sistem Pendidikan Terpadu</h2>
         
-        <!-- Lembaga Pendidikan Formal -->
         <div class="lembaga-grid">
             <div class="lembaga-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="badge-akreditasi"><i class="fa-solid fa-award"></i> Akreditasi A (Unggul)</div>
@@ -162,7 +138,6 @@
             </div>
         </div>
         
-        <!-- Kurikulum & Ekstrakurikuler -->
         <div class="program-row" data-aos="fade-up">
             <div class="card-program">
                 <h4>Struktur Kurikulum & Ekstrakurikuler</h4>
@@ -177,19 +152,15 @@
                     <li><i class="fa-solid fa-check" style="color:#D4AF37; margin-right: 5px;"></i> Seni Tari & Muhadhoroh</li>
                 </ul>
             </div>
-            <!-- Menggunakan Foto Berkualitas dari Unsplash sebagai pengganti kurikulum.jpg -->
             <div class="program-img-box order-mobile"><img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1200&auto=format&fit=crop" alt="Kurikulum"></div>
         </div>
 
-        <!-- Tabel Kegiatan Harian -->
         <div class="program-row" data-aos="fade-up" style="margin-top: 40px;">
-            <!-- Menggunakan Foto Berkualitas dari Unsplash sebagai pengganti jadwal.jpg -->
             <div class="program-img-box"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1200&auto=format&fit=crop" alt="Jadwal"></div>
             <div class="card-program">
                 <h4>Tabel Kegiatan Harian Santri</h4>
                 <p>Aktivitas santri dikawal secara penuh selama 24 jam dengan ritme yang disiplin, menyeimbangkan antara ibadah wajib, kajian ilmu agama, dan pelajaran sains modern.</p>
                 
-                <!-- Pembungkus agar tabel tidak meluber di HP yang layarnya kecil -->
                 <div class="table-responsive">
                     <table class="table-jadwal">
                         <tr><td style="width: 100px;"><span class="time-tag">PAGI</span></td><td>Bangun Pagi • Sholat Shubuh Berjama'ah & Tadarus Al-Qur'an • Pengajian Kitab Kuning • Sarapan Pagi • Kegiatan Belajar Mengajar (KBM) Formal</td></tr>
@@ -198,7 +169,6 @@
                         <tr><td><span class="time-tag">MALAM</span></td><td>Sholat Isya Berjama'ah & Tadarus • Pemberian Kosa Kata Baru (B. Arab/Inggris) • Kegiatan Belajar Malam Mandiri Terbimbing • Istirahat Tidur Malam</td></tr>
                     </table>
                 </div>
-                
             </div>
         </div>
     </div>
