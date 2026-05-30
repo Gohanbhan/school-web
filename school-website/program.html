@@ -61,10 +61,12 @@
         .card-program h4 { color: #0d3b2e; font-size: 26px; margin-bottom: 20px; border-left: 4px solid #D4AF37; padding-left: 12px; line-height: 1.3; }
         .card-program p { font-size: 15px; color: #555; margin-bottom: 20px; text-align: justify; line-height: 1.7; }
         
+        /* Tabel Jadwal Lebih Modern */
         .table-jadwal { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px; line-height: 1.7; }
         .table-jadwal td { padding: 15px 12px; border-bottom: 1px dashed #eef1f0; }
         .table-jadwal tr:last-child td { border-bottom: none; }
         
+        /* Badge Waktu Emas */
         .time-tag { font-weight: 700; color: white; background: #D4AF37; padding: 6px 14px; border-radius: 8px; display: inline-block; font-size: 13px; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); }
         
         footer { background: #07221a; color: rgba(255,255,255,0.7); text-align: center; padding: 30px 0; margin-top: 80px; }
@@ -93,8 +95,9 @@
             .program-img-box { height: 250px; }
             
             .card-program ul { grid-template-columns: 1fr !important; }
+            /* Memperbaiki agar tabel tidak meluber */
             .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-            .table-jadwal { min-width: 400px; }
+            .table-jadwal { min-width: 300px !important; }
         }
     </style>
 </head>
@@ -163,7 +166,7 @@
                 
                 <div class="table-responsive">
                     <table class="table-jadwal">
-                        <tr><td style="width: 100px;"><span class="time-tag">PAGI</span></td><td>Bangun Pagi • Sholat Shubuh Berjama'ah & Tadarus Al-Qur'an • Pengajian Kitab Kuning • Sarapan Pagi • Kegiatan Belajar Mengajar (KBM) Formal</td></tr>
+                        <tr><td><span class="time-tag">PAGI</span></td><td>Bangun Pagi • Sholat Shubuh Berjama'ah & Tadarus Al-Qur'an • Pengajian Kitab Kuning • Sarapan Pagi • Kegiatan Belajar Mengajar (KBM) Formal</td></tr>
                         <tr><td><span class="time-tag">SIANG</span></td><td>Sholat Dzuhur Berjama'ah • Makan Siang & Istirahat • Melanjutkan Kegiatan Belajar Mengajar (KBM) Formal Kampus</td></tr>
                         <tr><td><span class="time-tag">SORE</span></td><td>Sholat Ashar Berjama'ah & Tadarus • Kegiatan Ekstrakurikuler Minat Bakat • Makan Sore • Sholat Maghrib Berjama'ah & Halaqotil Al-Qur'an</td></tr>
                         <tr><td><span class="time-tag">MALAM</span></td><td>Sholat Isya Berjama'ah & Tadarus • Pemberian Kosa Kata Baru (B. Arab/Inggris) • Kegiatan Belajar Malam Mandiri Terbimbing • Istirahat Tidur Malam</td></tr>

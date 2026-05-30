@@ -115,22 +115,22 @@
         
         .cta-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 25px; }
         
-        /* Tombol WA */
         .btn-wa { background: #25D366; color: white; padding: 14px 30px; border-radius: 50px; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; }
         .btn-wa:hover { transform: scale(1.05); box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); }
         
-        /* Tombol Maps (Baru) */
         .btn-map { background: #ffffff; color: #0d3b2e; padding: 14px 30px; border-radius: 50px; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; }
         .btn-map:hover { transform: scale(1.05); box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3); color: #198754; }
 
         footer { background: #07221a; color: rgba(255,255,255,0.7); text-align: center; padding: 30px 0; margin-top: 40px; }
 
         @media(max-width: 768px) {
-            .navbar { flex-direction: column; gap: 15px; }
-            .menu { flex-wrap: wrap; justify-content: center; }
+            /* PERBAIKAN REVISI MOBILE */
+            body { padding-top: 220px !important; }
+            .navbar { flex-direction: column !important; gap: 15px !important; }
+            .menu { flex-wrap: wrap !important; justify-content: center !important; }
             .alur-grid { grid-template-columns: 1fr; }
             .syarat-box { padding: 40px 20px; }
-            .cta-buttons { flex-direction: column; } /* Tombol numpuk di HP biar rapi */
+            .cta-buttons { flex-direction: column; }
         }
     </style>
 </head>
@@ -208,7 +208,6 @@
                     <i class="fa-solid fa-location-dot" style="color: #EA4335;"></i> Lihat Lokasi (Shareloc)
                 </a>
             </div>
-            
         </div>
     </div>
 
