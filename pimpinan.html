@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pimpinan - Pondok Pesantren La Tansa 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <style>
+        /* CSS SAMA PERSIS DENGAN INDEX */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #fdfefe; color: #2b3a33; padding-top: 100px; line-height: 1.8; }
+        .container { width: 90%; max-width: 1200px; margin: auto; }
+
+        /* Navbar Seragam */
+        nav { position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(13, 59, 46, 0.95); backdrop-filter: blur(15px); box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
+        
+        .logo-container { 
+            display: flex; align-items: center; gap: 12px; color: white; font-weight: 700; font-size: 22px; text-decoration: none; 
+            /* TAMBAHAN ANIMASI */
+            animation: slideInLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+        .logo-container img { height: 48px; }
+        .logo { font-weight: 600; color: white; }
+        .logo span { color: #D4AF37; font-weight: 700; }
+
+        /* TAMBAHAN KEYFRAMES ANIMASI */
+        @keyframes slideInLeft {
+            0% { opacity: 0; transform: translateX(-40px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        .menu { display: flex; gap: 10px; align-items: center; }
+        .menu a { color: rgba(255,255,255,0.85); font-weight: 500; font-size: 15px; padding: 8px 16px; border-radius: 8px; transition: all 0.3s ease; text-decoration: none; }
+        .menu a:hover, .menu a.active { background: rgba(255, 255, 255, 0.15); color: #D4AF37; }
+        .menu a.active { font-weight: 600; }
+
+        /* DROPDOWN */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #ffffff; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 8px; top: 100%; left: 0; padding: 10px 0; z-index: 1001; }
+        .dropdown-content a { color: #0d3b2e !important; display: block; padding: 10px 20px !important; font-size: 14px !important; font-weight: 500 !important; }
+        .dropdown-content a:hover { background-color: #f4f7f5; color: #198754 !important; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* Konten */
+        .pimpinan-card { background: white; padding: 50px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-top: 40px; text-align: center; }
+        .foto-pimpinan { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 25px; border: 5px solid #D4AF37; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container navbar">
+            <a href="index.html" class="logo-container">
+                <img src="logo.png" alt="Logo La Tansa 2">
+                <div class="logo">Pondok Pesantren La Tansa <span>2</span></div>
+            </a>
+            <div class="menu">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <a href="#">Tentang <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
+                    <div class="dropdown-content">
+                        <a href="sejarah.html">Sejarah Berdirinya</a>
+                        <a href="pimpinan.html" class="active">Profil Pimpinan</a>
+                        <a href="visi-misi.html">Visi & Misi</a>
+                    </div>
+                </div>
+                <a href="program.html">Program</a>
+                <a href="galeri.html">Galeri</a>
+                <a href="pendaftaran.html">Alur Pendaftaran</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="pimpinan-card">
+            <img src="https://via.placeholder.com/200" alt="Foto Pimpinan" class="foto-pimpinan">
+            <h2>Nama Pimpinan Pondok</h2>
+            <p><strong>Jabatan:</strong> Pimpinan Pondok Pesantren La Tansa 2</p>
+            <p style="margin-top:20px; text-align:justify;">Beliau merupakan sosok yang berdedikasi tinggi dalam dunia pendidikan Islam. Dengan latar belakang pendidikan [sebutkan latar belakang], beliau berkomitmen untuk membawa La Tansa 2 menjadi lembaga pendidikan yang unggul dan berakhlakul karimah.</p>
+        </div>
+    </div>
+</body>
+</html>

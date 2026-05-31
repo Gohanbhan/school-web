@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pondok Pesantren La Tansa 2 - Beranda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <style>
+        /* Reset Global */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: #fdfefe; color: #2b3a33; line-height: 1.8; overflow-x: hidden; font-size: 16px; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; }
+
+        .container { width: 90%; max-width: 1200px; margin: auto; }
+        section { padding: 100px 0; }
+
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 38px; color: #0d3b2e; font-weight: 700; margin-bottom: 15px; }
+        .section-title p { font-size: 16px; color: #666; }
+
+        /* Navbar Seragam */
+        nav { position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(13, 59, 46, 0.95); backdrop-filter: blur(15px); box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-bottom: none !important; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
+
+        /* Logo */
+        .logo-container { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            color: white; 
+            font-weight: 700; 
+            font-size: 22px; 
+            text-decoration: none;
+            animation: slideInLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+        .logo-container img { height: 48px; width: auto; object-fit: contain; }
+
+        .logo { font-weight: 600; color: white; }
+        .logo span { color: #D4AF37; font-weight: 700; }
+
+        /* Keyframes Animasi Jalan dari Kiri ke Kanan */
+        @keyframes slideInLeft {
+            0% { opacity: 0; transform: translateX(-40px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Menu Navigasi */
+        .menu { display: flex; gap: 10px; align-items: center; }
+        .menu a { 
+            color: rgba(255,255,255,0.85); 
+            font-weight: 500; 
+            font-size: 15px; 
+            padding: 8px 16px; 
+            border-radius: 8px; 
+            transition: all 0.3s ease; 
+        }
+        .menu a:hover { 
+            background: rgba(255, 255, 255, 0.15); 
+            color: #D4AF37; 
+        }
+        .menu a.active { color: #D4AF37; font-weight: 600; }
+
+        /* DROPDOWN CSS */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #ffffff; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 8px; top: 100%; left: 0; padding: 10px 0; z-index: 1001; }
+        .dropdown-content a { color: #0d3b2e !important; display: block; padding: 10px 20px !important; font-size: 14px !important; font-weight: 500 !important; }
+        .dropdown-content a:hover { background-color: #f4f7f5; color: #198754 !important; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* Hero Modern Fullscreen */
+        .hero { height: 100vh; background: linear-gradient(135deg, rgba(13, 59, 46, 0.85), rgba(31, 143, 95, 0.75)), url('https://images.unsplash.com/photo-1540959733332-eab4deceeaf7?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; text-align: center; color: white; }
+        .hero h1 { font-size: 58px; font-weight: 700; margin-bottom: 15px; }
+        .hero p { font-size: 24px; color: #D4AF37; font-weight: 600; margin-bottom: 40px; letter-spacing: 1px; }
+        .btn { display: inline-block; padding: 14px 35px; border-radius: 50px; font-weight: 600; font-size: 16px; transition: 0.4s ease; margin: 8px; }
+        .btn-primary { background: #198754; color: white; box-shadow: 0 0 20px rgba(25, 135, 84, 0.4); }
+        .btn-primary:hover { background: #146c43; transform: translateY(-2px); box-shadow: 0 0 30px rgba(25, 135, 84, 0.6); }
+
+        /* Floating Stats Layout */
+        .stats { background: #f4f7f5; padding: 60px 0; margin-top: -50px; position: relative; z-index: 10; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; text-align: center; }
+        .stat-box { background: white; padding: 35px 25px; border-radius: 25px; box-shadow: 0 15px 35px rgba(13, 59, 46, 0.06); transition: 0.4s ease; }
+        .stat-box:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(13, 59, 46, 0.12); }
+        .stat-box i { font-size: 38px; color: #1f8f5f; margin-bottom: 15px; }
+        .stats-container { display: flex; justify-content: center; align-items: center; gap: 2px; }
+        .stat-box h3, .stat-box span { font-size: 38px; font-weight: 700; color: #0d3b2e; }
+        .stat-box p { font-size: 16px; color: #666; font-weight: 500; }
+
+        /* Video Section */
+        .video-profile { background: #0d3b2e; color: white; text-align: center; }
+        .video-wrapper { max-width: 850px; margin: auto; border-radius: 24px; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.4); position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+        /* Alumni Box */
+        .alumni-box { background: #f4f7f5; padding: 50px 0; text-align: center; border-top: 1px solid #eef1f0; border-bottom: 1px solid #eef1f0; }
+        .alumni-box h4 { color: #0d3b2e; font-size: 24px; font-weight: 700; margin-bottom: 10px; }
+        .alumni-box p { font-size: 16px; color: #666; }
+        .alumni-list { font-weight: 700; letter-spacing: 0.5px; color: #198754; margin-top: 20px; font-size: 18px; line-height: 1.8; }
+
+        /* Gallery Homepage */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .gallery-item { overflow: hidden; border-radius: 20px; height: 280px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: relative; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
+        
+        .gallery-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(13, 59, 46, 0.92), rgba(0, 0, 0, 0.1)); display: flex; align-items: flex-end; padding: 25px; opacity: 0; transition: all 0.4s ease; }
+        .overlay-text { transform: translateY(30px); transition: transform 0.4s ease; color: white; }
+        .overlay-text h4 { font-size: 20px; color: #D4AF37; margin-bottom: 8px; font-weight: 700; }
+        .overlay-text p { font-size: 14px; line-height: 1.5; opacity: 0.9; }
+        
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-item:hover .overlay-text { transform: translateY(0); }
+
+        .show-all-box { text-align: center; margin-top: 45px; }
+        .btn-show-all { display: inline-flex; align-items: center; gap: 10px; padding: 14px 35px; background: transparent; color: #0d3b2e; border: 2px solid #0d3b2e; border-radius: 50px; font-weight: 600; font-size: 16px; transition: all 0.3s ease; }
+        .btn-show-all:hover { background: #0d3b2e; color: white; box-shadow: 0 10px 20px rgba(13, 59, 46, 0.15); transform: translateY(-2px); }
+
+        /* Footer */
+        footer { background: linear-gradient(135deg, #07221a, #0d3b2e); color: rgba(255,255,255,0.75); padding: 70px 0 30px 0; font-size: 15px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: white; font-size: 18px; margin-bottom: 20px; position: relative; font-weight: 600; }
+        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: -6px; width: 40px; height: 2px; background: #D4AF37; }
+        .footer-links a { display: block; color: rgba(255,255,255,0.7); margin-bottom: 12px; transition: 0.3s; }
+        .footer-links a:hover { color: #D4AF37; padding-left: 5px; }
+        .social-icons a { display: inline-block; width: 38px; height: 38px; background: rgba(255,255,255,0.06); color: white; text-align: center; line-height: 38px; border-radius: 50%; margin-right: 10px; font-size: 16px; transition: 0.3s; }
+        .social-icons a:hover { background: #D4AF37; color: #07221a; transform: translateY(-3px); }
+        .footer-bottom { text-align: center; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.07); }
+
+        /* --- TAMBAHAN UNTUK RESPONSIVE DI HP --- */
+        @media (max-width: 768px) {
+            .navbar { 
+                flex-direction: column !important; 
+                gap: 15px !important; 
+                padding: 15px 0 !important;
+            }
+            .logo-container { 
+                width: 100%; 
+                justify-content: center; 
+                animation: none !important; 
+            }
+            .menu { 
+                flex-wrap: wrap !important; 
+                justify-content: center !important; 
+                gap: 5px !important;
+                width: 100%;
+            }
+            .hero h1 { font-size: 32px !important; }
+            .hero p { font-size: 18px !important; }
+
+            /* PERBAIKAN GALERI DI HP (Agar keterangan selalu muncul) */
+            .gallery-overlay { 
+                opacity: 1 !important; /* Memaksa gradasi selalu terlihat */
+                background: linear-gradient(to top, rgba(13, 59, 46, 0.95), transparent) !important;
+            }
+            .overlay-text { 
+                transform: translateY(0) !important; /* Memaksa teks selalu di posisinya */
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <div class="container navbar">
+            <a href="index.html" class="logo-container">
+                <img src="logo.png" alt="Logo La Tansa 2">
+                <div class="logo">Pondok Pesantren La Tansa <span>2</span></div>
+            </a>
+            <div class="menu">
+                <a href="index.html" class="active">Home</a>
+                
+                <div class="dropdown">
+                    <a href="tentang.html">Tentang <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
+                    <div class="dropdown-content">
+                        <a href="sejarah.html">Sejarah Berdirinya</a>
+                        <a href="pimpinan.html">Profil Pimpinan</a>
+                        <a href="visi-misi.html">Visi & Misi</a>
+                    </div>
+                </div>
+
+                <a href="program.html">Program</a>
+                <a href="galeri.html">Galeri</a>
+                <a href="pendaftaran.html">Alur Pendaftaran</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-content" data-aos="zoom-in" data-aos-duration="1200">
+            <h1>Membentuk Generasi Qurani</h1>
+            <p>Modern • Berakhlak • Berprestasi</p>
+            <a href="pendaftaran.html" class="btn btn-primary">Informasi Pendaftaran PSB 2026/2027</a>
+        </div>
+    </section>
+
+    <!-- Floating Stats Premium -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <!-- Box 1: Santri Aktif -->
+                <div class="stat-box" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <div class="stats-container"><h3 class="counter" data-target="300">300</h3><span>+</span></div>
+                    <p>Santri Aktif</p>
+                </div>
+                
+                <!-- Box 2: Asatidz Pengajar -->
+                <div class="stat-box" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <div class="stats-container"><h3 class="counter" data-target="70">70</h3><span>+</span></div>
+                    <p>Asatidz Pengajar</p>
+                </div>
+                
+                <!-- Box 3: KEUNGGULAN UTAMA -->
+                <div class="stat-box" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-house-chimney-user" style="color: #1f8f5f;"></i>
+                    <div class="stats-container"><h3 class="counter" data-target="24">24</h3><span>/7</span></div>
+                    <p>Pendampingan Kamar Asrama</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-profile">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2 style="color: white;">Klip Dokumenter Video Profil</h2>
+                <p style="color: rgba(255,255,255,0.75);">Visualisasi utuh potret kenyamanan pendidikan di Pondok Pesantren La Tansa 2</p>
+            </div>
+            <div class="video-wrapper" data-aos="zoom-in">
+                <iframe src="https://www.youtube.com/embed/Ewvywi6NtRY" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <div class="alumni-box">
+        <div class="container" data-aos="fade-up">
+            <h4>Basis Sebaran Alumni Perguruan Tinggi</h4>
+            <p>Alumni Pondok Pesantren La Tansa 2 diterima di sejumlah perguruan tinggi Dalam dan Luar Negeri, diantaranya:</p>
+            <div class="alumni-list">
+                IPB • UIN Jakarta • UNTIRTA • UMJ • UNPAD • UNIBA • UNSOED • MMTC • STT Telkom • Universitas Brawijaya (UB) • AKPOL • AKMIL • FK Unsyiah • PresUniv
+            </div>
+        </div>
+    </div>
+
+    <section id="galeri">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Galeri Kebersamaan Pondok</h2>
+                <p>Infrastruktur modern dan ruang aktivitas harian para santri</p>
+            </div>
+            <div class="gallery-grid">
+                <!-- Foto 1: Suasana KBM Formal Lokal -->
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="KBM Formal.jpeg" alt="KBM">
+                    <div class="gallery-overlay"><div class="overlay-text"><h4>KBM Formal Modern</h4><p>Suasana belajar yang interaktif, nyaman, dan kondusif untuk menyerap ilmu.</p></div></div>
+                </div>
+                <!-- Foto 2: Pembinaan Karakter (Tapak Suci) Lokal -->
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="Pembinaan Karakter (Tapak Suci).jpeg" alt="Pembinaan">
+                    <div class="gallery-overlay"><div class="overlay-text"><h4>Pembinaan Karakter</h4><p>Wadah pembentukan kedisiplinan dan ketangkasan santri di luar jam formal.</p></div></div>
+                </div>
+                <!-- Foto 3: Sarana Prasarana Gedung Lokal -->
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="Sarana Prasarana.jpeg" alt="Gedung">
+                    <div class="gallery-overlay"><div class="overlay-text"><h4>Sarana Prasarana</h4><p>Gedung representatif yang berdampingan langsung dengan kompleks universitas.</p></div></div>
+                </div>
+                <!-- Foto 4: Suasana Asri (Drone) Lokal -->
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="Suasana Asri (Drone).jpeg" alt="Lingkungan">
+                    <div class="gallery-overlay"><div class="overlay-text"><h4>Suasana Asri</h4><p>Lingkungan hijau bernuansa lembah di tengah kota yang menenangkan jiwa santri.</p></div></div>
+                </div>
+            </div>
+            <div class="show-all-box" data-aos="fade-up">
+                <a href="galeri.html" class="btn-show-all">Lihat Semua Galeri <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>La Tansa 2</h4>
+                <p>Membentuk institusi pendidikan islam modern yang berintegritas tinggi untuk melahirkan insan kamil berkarakter qurani.</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/pondokpesantrenlatansa2" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@pesantrenlatansa2769" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col footer-links">
+                <h4>Menu Utama</h4>
+                <a href="index.html">Beranda</a>
+                <a href="tentang.html">Tentang Kami</a>
+                <a href="program.html">Program Pendidikan</a>
+                <a href="galeri.html">Galeri Foto</a>
+                <a href="pendaftaran.html">Informasi Pendaftaran</a>
+            </div>
+            <div class="footer-col">
+                <h4>Lokasi Kampus</h4>
+                <p>Pasirjati, Kecamatan Rangkasbitung, Kabupaten Lebak, Provinsi Banten, Indonesia.</p>
+                <p><strong>Jam Operasional:</strong><br>Setiap Hari (08.00 - 17.00 WIB)</p>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 Pondok Pesantren La Tansa 2 | Website Resmi Terintegrasi</p></div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true });
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            counter.innerText = '0';
+            const updateCounter = () => {
+                const target = +counter.getAttribute('data-target');
+                const current = +counter.innerText;
+                const increment = target / 80;
+                if (current < target) {
+                    counter.innerText = `${Math.ceil(current + increment)}`;
+                    setTimeout(updateCounter, 25);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCounter();
+        });
+    </script>
+</body>
+</html>
