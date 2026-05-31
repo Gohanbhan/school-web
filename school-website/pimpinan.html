@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visi & Misi - Pondok Pesantren La Tansa 2</title>
+    <title>Profil Pimpinan - Pondok Pesantren La Tansa 2</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     <style>
-        /* CSS DISAMAKAN DENGAN INDEX */
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; background: #fdfefe; color: #2b3a33; line-height: 1.8; padding-top: 100px; }
+        /* CSS SAMA PERSIS DENGAN INDEX */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #fdfefe; color: #2b3a33; padding-top: 100px; line-height: 1.8; }
         .container { width: 90%; max-width: 1200px; margin: auto; }
 
         /* Navbar Seragam */
@@ -18,13 +18,15 @@
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
         
         .logo-container { 
-            display: flex; align-items: center; gap: 12px; color: white; font-weight: 700; font-size: 22px; text-decoration: none;
+            display: flex; align-items: center; gap: 12px; color: white; font-weight: 700; font-size: 22px; text-decoration: none; 
+            /* TAMBAHAN ANIMASI */
             animation: slideInLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
         .logo-container img { height: 48px; }
         .logo { font-weight: 600; color: white; }
         .logo span { color: #D4AF37; font-weight: 700; }
 
+        /* TAMBAHAN KEYFRAMES ANIMASI */
         @keyframes slideInLeft {
             0% { opacity: 0; transform: translateX(-40px); }
             100% { opacity: 1; transform: translateX(0); }
@@ -42,13 +44,9 @@
         .dropdown-content a:hover { background-color: #f4f7f5; color: #198754 !important; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* Konten Visi Misi */
-        .vm-card { background: white; padding: 50px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-top: 40px; }
-        .vm-card h2 { color: #0d3b2e; margin-bottom: 25px; border-bottom: 3px solid #D4AF37; display: inline-block; }
-        .vm-card h3 { color: #198754; margin-top: 30px; margin-bottom: 15px; }
-        .vm-card ul { list-style: none; margin-left: 20px; }
-        .vm-card li { margin-bottom: 10px; position: relative; }
-        .vm-card li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #D4AF37; position: absolute; left: -25px; }
+        /* Konten */
+        .pimpinan-card { background: white; padding: 50px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-top: 40px; text-align: center; }
+        .foto-pimpinan { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 25px; border: 5px solid #D4AF37; }
     </style>
 </head>
 <body>
@@ -64,8 +62,8 @@
                     <a href="#">Tentang <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
                     <div class="dropdown-content">
                         <a href="sejarah.html">Sejarah Berdirinya</a>
-                        <a href="pimpinan.html">Profil Pimpinan</a>
-                        <a href="visi-misi.html" class="active">Visi & Misi</a>
+                        <a href="pimpinan.html" class="active">Profil Pimpinan</a>
+                        <a href="visi-misi.html">Visi & Misi</a>
                     </div>
                 </div>
                 <a href="program.html">Program</a>
@@ -76,21 +74,12 @@
     </nav>
 
     <div class="container">
-        <div class="vm-card" data-aos="fade-up">
-            <h2>Visi</h2>
-            <p>"Menjadi lembaga pendidikan Islam unggul yang melahirkan generasi cerdas, berakhlakul karimah, mandiri, dan berwawasan global berdasarkan nilai-nilai Al-Qur'an dan Sunnah."</p>
-
-            <h3>Misi</h3>
-            <ul>
-                <li>Menyelenggarakan pendidikan Islam yang terpadu dan bermutu tinggi.</li>
-                <li>Membentuk karakter santri yang disiplin, jujur, dan berjiwa kepemimpinan.</li>
-                <li>Mengembangkan penguasaan ilmu pengetahuan dan teknologi (IPTEK) yang selaras dengan iman dan taqwa (IMTAQ).</li>
-                <li>Menanamkan literasi multi-bahasa (Arab & Inggris) sebagai bekal komunikasi internasional.</li>
-            </ul>
+        <div class="pimpinan-card">
+            <img src="https://via.placeholder.com/200" alt="Foto Pimpinan" class="foto-pimpinan">
+            <h2>Nama Pimpinan Pondok</h2>
+            <p><strong>Jabatan:</strong> Pimpinan Pondok Pesantren La Tansa 2</p>
+            <p style="margin-top:20px; text-align:justify;">Beliau merupakan sosok yang berdedikasi tinggi dalam dunia pendidikan Islam. Dengan latar belakang pendidikan [sebutkan latar belakang], beliau berkomitmen untuk membawa La Tansa 2 menjadi lembaga pendidikan yang unggul dan berakhlakul karimah.</p>
         </div>
     </div>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ once: true });</script>
 </body>
 </html>
