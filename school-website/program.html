@@ -44,7 +44,7 @@
         /* SECTION TITLE */
         .section-title { text-align: center; margin-bottom: 50px; }
         .section-title h2 { font-size: 38px; color: #0d3b2e; font-weight: 800; }
-        .section-title p { font-size: 16px; color: #666; margin-top: 10px; max-width: 800px; margin-left: auto; margin-right: auto;}
+        .section-title p { font-size: 16px; color: #666; margin-top: 10px; max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.8; }
 
         /* PROGRAM UNGGULAN */
         .unggulan-section { padding: 40px 0; }
@@ -87,18 +87,17 @@
 
         /* KURIKULUM DETAIL */
         .content-wrap { background: #f8fcf9; padding: 50px; border-radius: 30px; margin-bottom: 50px; border: 1px solid #eef1f0; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
-        .grid-kegiatan { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 30px; }
+        .grid-kegiatan { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 30px; }
         .card-kegiatan { background: white; padding: 35px; border-radius: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.03); border: 1px solid #f0f2f1; transition: 0.3s; }
-        .card-kegiatan:hover { transform: translateY(-5px); border-color: #198754; }
-        .card-kegiatan h4 { color: #198754; font-size: 20px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-        .card-kegiatan ul { list-style: none; padding-left: 0; }
-        .card-kegiatan ul li { margin-bottom: 12px; font-size: 15px; display: flex; align-items: flex-start; gap: 10px; color: #444; }
-        .card-kegiatan ul li i { color: #D4AF37; margin-top: 5px; font-size: 14px; }
+        .card-kegiatan:hover { transform: translateY(-5px); border-color: #198754; box-shadow: 0 15px 30px rgba(25,135,84,0.1); }
+        .card-kegiatan h4 { color: #198754; font-size: 22px; margin-bottom: 25px; display: flex; align-items: center; gap: 12px; border-bottom: 2px dashed #eef1f0; padding-bottom: 15px; }
         
-        /* ========================================================
-           DESAIN AGENDA BARU (BERSIH, UNIK, POIN-POIN SINGKAT)
-           ======================================================== */
-        .agenda-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 40px; }
+        .card-kegiatan ul { list-style: none; padding-left: 0; }
+        .card-kegiatan ul li { margin-bottom: 15px; font-size: 15px; display: flex; align-items: flex-start; gap: 12px; color: #444; line-height: 1.6; }
+        .card-kegiatan ul li i { color: #D4AF37; margin-top: 5px; font-size: 16px; flex-shrink: 0; }
+        
+        /* AGENDA PENEMPAAN DIRI */
+        .agenda-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; margin-top: 40px; }
         
         .agenda-box { 
             background: white; 
@@ -111,7 +110,6 @@
             overflow: hidden; 
         }
         
-        /* Garis Gradasi di Atas Kartu */
         .agenda-box::before { 
             content: ''; 
             position: absolute; 
@@ -128,7 +126,6 @@
         
         .agenda-box:hover::before { background: linear-gradient(90deg, #FFD700, #F39C12); }
         
-        /* Ikon Dinamis */
         .agenda-icon { 
             width: 60px; height: 60px; 
             background: #f4f7f5; 
@@ -141,12 +138,15 @@
         
         .agenda-box:hover .agenda-icon { background: #0d3b2e; color: #D4AF37; transform: scale(1.1) rotate(5deg); }
         
-        .agenda-box h4 { font-size: 20px; color: #0d3b2e; margin-bottom: 15px; font-weight: 800; }
+        .agenda-box h4 { font-size: 22px; color: #0d3b2e; margin-bottom: 20px; font-weight: 800; border-bottom: 2px dashed #eef1f0; padding-bottom: 10px;}
         
-        /* List Estetik */
         .agenda-list { list-style: none; padding: 0; margin: 0; }
-        .agenda-list li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 15px; color: #555; line-height: 1.5; }
-        .agenda-list li i { color: #198754; font-size: 14px; margin-top: 3px; }
+        .agenda-list li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px; font-size: 14px; color: #444; line-height: 1.6; }
+        .agenda-list li i { color: #198754; font-size: 15px; margin-top: 4px; flex-shrink: 0; }
+
+        .agenda-sublist { list-style: circle; padding-left: 20px; margin-top: 5px; color: #666; font-size: 13px; }
+        .agenda-sublist li { display: list-item; margin-bottom: 5px; line-height: 1.4; }
+        .agenda-sublist li i { display: none; } /* Hide the green check for sublists */
 
         @media (max-width: 992px) { .lembaga-grid { grid-template-columns: 1fr; } }
         @media (max-width: 768px) {
@@ -159,7 +159,6 @@
 </head>
 <body>
     
-    <!-- Navbar -->
     <nav>
         <div class="container navbar">
             <a href="index.html" class="logo-container">
@@ -210,7 +209,7 @@
                 <div class="unggulan-card" data-aos="fade-up" data-aos-delay="100">
                     <i class="fa-solid fa-school"></i>
                     <h3>Kurikulum Terpadu</h3>
-                    <p>Penerapan kurikulum Nasional dan Kepondokpesantrenan (Gontor Style) secara integral, memadukan ilmu sains modern dan pendalaman agama.</p>
+                    <p>Penerapan kurikulum Nasional dan Kepondokpesantrenan secara integral, memadukan ilmu sains modern dan pendalaman agama Islam.</p>
                 </div>
                 <div class="unggulan-card" data-aos="fade-up" data-aos-delay="200">
                     <i class="fa-solid fa-graduation-cap"></i>
@@ -238,83 +237,90 @@
         <div class="content-wrap" data-aos="fade-up">
             <div class="section-title">
                 <h2>Kurikulum Kepondok Pesantrenan</h2>
-                <p>Pendidikan integratif yang dirancang khusus untuk mencetak santri berwawasan luas, berakhlak mulia, dan siap terjun ke masyarakat.</p>
+                <p>Pondok pesantren La Tansa 2 menyelenggarakan kurikulum terpadu antara bidang studi umum (Kurikulum Nasional) dan bidang studi kepondok pesantrenan yang merujuk kepada kurikulum Pendidikan Gontor dalam satu sistem secara integral.</p>
             </div>
             <div class="grid-kegiatan">
                 <div class="card-kegiatan">
                     <h4><i class="fa-solid fa-book-open"></i> Mata Pelajaran</h4>
                     <ul>
-                        <li><i class="fa-solid fa-check"></i> Penguasaan Bahasa Arab & Inggris</li>
-                        <li><i class="fa-solid fa-check"></i> Kaidah Nahwu & Shorof</li>
-                        <li><i class="fa-solid fa-check"></i> Tafsir, Hadist, Fiqh & Ilmu Tauhid</li>
-                        <li><i class="fa-solid fa-check"></i> Kajian Kitab Kuning Dasar & Lanjutan</li>
+                        <li><i class="fa-solid fa-check"></i> Bahasa Arab & Bahasa Inggris</li>
+                        <li><i class="fa-solid fa-check"></i> Nahwu & Shorof</li>
+                        <li><i class="fa-solid fa-check"></i> Tafsir (Al Ahkam) & Hadist (Subulu As Salam)</li>
+                        <li><i class="fa-solid fa-check"></i> Fiqh (Fiqih As Sunnah) & Tauhid (Al Akhidah)</li>
+                        <li><i class="fa-solid fa-check"></i> Kitab Kuning (Al Akhlak Lil Banin/Banat, Safinatun An Naja, d.l.l)</li>
                     </ul>
                 </div>
                 <div class="card-kegiatan">
-                    <h4><i class="fa-solid fa-users-viewfinder"></i> Praktikum Amaliyah</h4>
+                    <h4><i class="fa-solid fa-award"></i> Praktikum Amaliyah (Bersertifikat)</h4>
                     <ul>
-                        <li><i class="fa-solid fa-star"></i> Amaliyah Imamah & Praktek Mengajar</li>
-                        <li><i class="fa-solid fa-star"></i> Khutobah: Pidato dalam 3 Bahasa</li>
-                        <li><i class="fa-solid fa-star"></i> Simulasi Manasik Haji & Tajhizul Mayyit</li>
-                        <li><i class="fa-solid fa-star"></i> Ujian Hafalan Surat & Juz 30 Berkala</li>
+                        <li><i class="fa-solid fa-star"></i> Amaliyah Imamah & Amaliyah Tadris (Mengajar)</li>
+                        <li><i class="fa-solid fa-star"></i> Amaliyah Khutobah (Pidato 3 Bahasa)</li>
+                        <li><i class="fa-solid fa-star"></i> Tajhizul Mayyit & Manasik Haji</li>
+                        <li><i class="fa-solid fa-star"></i> Mengajar Menggunakan Metode Iqra'</li>
+                        <li><i class="fa-solid fa-star"></i> Hafalan Surat (Juz 30) & Surat-surat Pilihan</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- AGENDA PENEMPAAN DIRI (DESAIN BARU) -->
+        <!-- AGENDA PENEMPAAN DIRI -->
         <div class="content-wrap" data-aos="fade-up" style="margin-bottom: 80px; background: transparent; box-shadow: none; border: none; padding: 0;">
             <div class="section-title" style="margin-bottom: 20px;">
-                <h2>Agenda Penempaan Diri</h2>
-                <p>Rutinintes terstruktur untuk membentuk kedisiplinan dan kemandirian santri.</p>
+                <h2>Program Kegiatan Pondok</h2>
+                <p>Rutinitas terstruktur secara harian, mingguan, bulanan, hingga tahunan untuk membentuk kedisiplinan, spiritualitas, dan kemandirian santri.</p>
             </div>
             
             <div class="agenda-wrapper">
                 <!-- Harian -->
                 <div class="agenda-box" data-aos="fade-up">
                     <div class="agenda-icon"><i class="fa-regular fa-sun"></i></div>
-                    <h4>Agenda Harian</h4>
+                    <h4>Harian</h4>
                     <ul class="agenda-list">
-                        <li><i class="fa-solid fa-circle-check"></i> Sholat Berjamaah 5 Waktu</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Halaqoh Al-Qur'an Terbimbing</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Kajian Kitab Kuning Subuh</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Kewajiban Berbahasa Resmi</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Melaksanakan Sholat Berjamaah & Sholat-sholat Sunnah</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Halaqah (Tilawah Al Qur'an secara terbimbing)</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Mengaji Kitab Kuning Ba'da Sholat Subuh</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Menggunakan Bahasa Resmi (Arab dan Inggris)</li>
                     </ul>
                 </div>
                 
                 <!-- Mingguan -->
                 <div class="agenda-box" data-aos="fade-up" data-aos-delay="100">
                     <div class="agenda-icon"><i class="fa-regular fa-calendar-week"></i></div>
-                    <h4>Agenda Mingguan</h4>
+                    <h4>Mingguan</h4>
                     <ul class="agenda-list">
-                        <li><i class="fa-solid fa-circle-check"></i> Latihan Public Speaking</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Praktek Percakapan Asing</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Tawasul & Dzikir Bersama</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Ekstrakurikuler & Olahraga</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Praktek Percakapan Bahasa Resmi Ba'da Subuh</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Public Speaking 3 Bahasa (Arab, Inggris & Indonesia)</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Tawasul & Dzikir Setiap Malam Jum'at</li>
                     </ul>
                 </div>
                 
                 <!-- Bulanan -->
                 <div class="agenda-box" data-aos="fade-up" data-aos-delay="200">
                     <div class="agenda-icon"><i class="fa-regular fa-calendar-check"></i></div>
-                    <h4>Agenda Bulanan</h4>
+                    <h4>Bulanan</h4>
                     <ul class="agenda-list">
-                        <li><i class="fa-solid fa-circle-check"></i> Setoran Hafalan (Watsiqoh)</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Evaluasi Ketat Pembelajaran</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Sesi Bimbingan Wali Kelas</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Pemeriksaan Kerapihan (Razia)</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Setoran Hafalan Surat-surat Pilihan (Watsiqoh)</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Evaluasi Pembelajaran Berkala</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Bimbingan Khusus Wali Kelas</li>
                     </ul>
                 </div>
                 
                 <!-- Tahunan -->
                 <div class="agenda-box" data-aos="fade-up" data-aos-delay="300">
                     <div class="agenda-icon"><i class="fa-solid fa-award"></i></div>
-                    <h4>Agenda Tahunan</h4>
+                    <h4>Tahunan</h4>
                     <ul class="agenda-list">
-                        <li><i class="fa-solid fa-circle-check"></i> Pekan Perkenalan (PPKA)</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Pentas Seni & Pekan Bahasa</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Rihlah Ilmiah (Study Tour)</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Wisuda / Haflatu At-Tahrij</li>
+                        <li><i class="fa-solid fa-circle-check"></i> PPKA (Pekan Perkenalan Khutbatul Arsy) & Pensi Santri</li>
+                        <li><i class="fa-solid fa-circle-check"></i> WOLEST (Week Of Language Contest)</li>
+                        <li><i class="fa-solid fa-circle-check"></i> PHBI (Peringatan Hari Besar Islam):
+                            <ul class="agenda-sublist">
+                                <li>One Day One Juz & Nuzulul Qur'an (Ramadhan)</li>
+                                <li>Isra Mi'raj & Maulid Nabi</li>
+                            </ul>
+                        </li>
+                        <li><i class="fa-solid fa-circle-check"></i> Rihlah Ilmiah & MABIT (Malam Bina dan Taqwa)</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Pergantian Pengurus OSIS & SILA (Semarak Idul Adha)</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Wisuda (Haflatu At Tahrij Lisanah An Nihaa'i)</li>
                     </ul>
                 </div>
             </div>
