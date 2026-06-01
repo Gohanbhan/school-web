@@ -36,25 +36,21 @@
         .dropdown-submenu-content { display: none; position: absolute; left: 100%; top: 0; background-color: #ffffff; min-width: 380px; box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 8px; padding: 10px 0; z-index: 1002; }
         .dropdown-submenu:hover .dropdown-submenu-content { display: block; }
 
-        /* HEADER DROPDOWN DENGAN WARNA BARU */
-        .sub-header { 
-            background-color: #fef9e7 !important; /* Warna Krem/Soft Gold */
-            font-weight: 700 !important; 
-            color: #0d3b2e !important; 
-            padding: 10px 20px !important; 
-            margin-top: 5px; 
-            border-bottom: 1px solid #e0d8b0; /* Garis bawah tipis */
-            pointer-events: none; 
-            text-transform: uppercase;
-            font-size: 11px !important;
-            letter-spacing: 0.8px;
-        }
+        /* HEADER DROPDOWN */
+        .sub-header { background-color: #fef9e7 !important; font-weight: 700 !important; color: #0d3b2e !important; padding: 10px 20px !important; margin-top: 5px; border-bottom: 1px solid #e0d8b0; pointer-events: none; text-transform: uppercase; font-size: 11px !important; letter-spacing: 0.8px; }
 
         /* KONTEN SEJARAH */
         .hero-banner { height: 300px; background: linear-gradient(rgba(13,59,46,0.8), rgba(13,59,46,0.8)), url('https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=2000') center/cover; display: flex; align-items: center; justify-content: center; color: white; border-radius: 20px; margin-top: 30px; text-align: center; }
         .sejarah-content { background: white; padding: 50px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-top: 40px; margin-bottom: 50px; }
         .section-header { color: #0d3b2e; font-size: 26px; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
         .quote-box { background: #fdf6d9; border-left: 5px solid #D4AF37; padding: 25px; margin: 30px 0; font-style: italic; color: #5d4a1f; text-align: center; border-radius: 0 15px 15px 0; }
+
+        /* FIX RESPONSIVE MOBILE */
+        @media (max-width: 992px) {
+            .navbar { flex-direction: column; }
+            .menu { flex-wrap: wrap; justify-content: center; margin-top: 10px; }
+            .dropdown-submenu-content { left: 0; top: 100%; min-width: 250px; }
+        }
     </style>
 </head>
 <body>
@@ -70,7 +66,6 @@
                     <a href="#">Tentang <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
                     <div class="dropdown-content">
                         <a href="sejarah.html" class="active">Sejarah Berdirinya</a>
-                        
                         <div class="dropdown-submenu">
                             <a href="#">Profil Pimpinan <i class="fa-solid fa-chevron-right" style="float: right; margin-top: 5px;"></i></a>
                             <div class="dropdown-submenu-content">
@@ -82,7 +77,6 @@
                                 <a href="#">- Hj. Ilmi Albadiah, S.Kom., M.M.</a>
                             </div>
                         </div>
-                        
                         <a href="visi-misi.html">Visi & Misi</a>
                     </div>
                 </div>
@@ -94,7 +88,6 @@
     </nav>
 
     <div class="container">
-        <!-- Banner Tetap -->
         <div class="hero-banner" data-aos="zoom-in">
             <div>
                 <h1>Sejarah Kami</h1>
@@ -113,7 +106,7 @@
             <p>Pengelolaan Pondok Pesantren La Tansa 2 berada di bawah naungan Yayasan La Tansa Mashiro, yang didirikan oleh Drs. KH. Ahmad Rifa’i Arief (Alm) dengan Akta Notaris No. 4 Tanggal 9 Januari 1991 dan Akta Perubahan No. 44 Tanggal 20 April 1998. Dengan sistem pendidikan yang terus berkembang, Pondok Pesantren La Tansa 2 berkomitmen untuk mencetak generasi yang unggul dalam keilmuan dan berakhlak mulia.</p>
 
             <h2 class="section-header" style="margin-top: 40px;"><i class="fa-solid fa-graduation-cap"></i> Kurikulum & Ekstrakurikuler</h2>
-            <p>Selain menawarkan kurikulum berbasis pesantren yang kuat, Pondok Pesantren La Tansa 2 juga membekali para santri dengan berbagai keterampilan dan kegiatan ekstrakurikuler. Para santri dapat mengikuti berbagai kegiatan seperti kepemimpinan, seni, olahraga, hingga program kewirausahaan yang bertujuan untuk mengasah potensi mereka. Dengan pendekatan pendidikan yang komprehensif, pesantren ini berupaya menciptakan lulusan yang tidak hanya cakap dalam ilmu agama, tetapi juga siap menghadapi tantangan kehidupan di masa depan.</p>
+            <p>Selain menawarkan kurikulum berbasis pesantren yang kuat, Pondok Pesantren La Tansa 2 juga membekali para santri dengan berbagai keterampilan dan kegiatan ekstrakurikuler. Para santri dapat mengikuti berbagai kegiatan seperti kepemimpinan, seni, olahraga, hingga program kewirausahaan yang bertujuan untuk mengasah potensi mereka.</p>
 
             <div class="quote-box" data-aos="fade-left">
                 <p style="font-size: 1.2rem; margin-bottom: 10px;">وَابْتَغِ فِيْمَآ اٰتٰىكَ اللّٰهُ الدَّارَ الْاٰخِرَةَ وَلَا تَنْسَ نَصِيْبَكَ مِنَ الدُّنْيَا وَاَحْسِنْ كَمَآ اَحْسَنَ اللّٰهُ اِلَيْكَ وَلَا تَبْغِ الْفَسَادَ فِى الْاَرْضِ اِنَّ اللّٰهَ لَا يُحِبُّ الْمُفْسِدِيْنَ</p>
