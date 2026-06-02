@@ -10,36 +10,36 @@
     <style>
         /* RESET & BASE */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background: #fdfefe; color: #2b3a33; padding-top: 80px; line-height: 1.8; }
+        body { font-family: 'Poppins', sans-serif; background: #fdfefe; color: #2b3a33; padding-top: 100px; line-height: 1.8; overflow-x: hidden; font-size: 16px; }
         a { text-decoration: none; }
         .container { width: 90%; max-width: 1200px; margin: auto; }
 
-        /* NAVBAR SERAGAM */
+        /* NAVBAR (SAMA PERSIS DENGAN INDEX) */
         nav { position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(13, 59, 46, 0.95); backdrop-filter: blur(15px); box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-bottom: none !important; }
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
         
         .logo-container { display: flex; align-items: center; gap: 12px; color: white; font-weight: 700; font-size: 22px; text-decoration: none; animation: slideInLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
         .logo-container img { height: 48px; }
-        .logo span { color: #D4AF37; }
-
-        @keyframes slideInLeft {
-            0% { opacity: 0; transform: translateX(-40px); }
-            100% { opacity: 1; transform: translateX(0); }
-        }
+        .logo { font-weight: 600; color: white; }
+        .logo span { color: #D4AF37; font-weight: 700; }
+        @keyframes slideInLeft { 0% { opacity: 0; transform: translateX(-40px); } 100% { opacity: 1; transform: translateX(0); } }
         
         .menu { display: flex; gap: 10px; align-items: center; }
         .menu a { color: rgba(255,255,255,0.85); font-weight: 500; font-size: 15px; padding: 8px 16px; border-radius: 8px; transition: 0.3s; }
         .menu a:hover, .menu a.active { background: rgba(255, 255, 255, 0.15); color: #D4AF37; }
+        .menu a.active { font-weight: 600; }
 
-        /* DROPDOWN CSS */
+        /* DROPDOWN & SUB-MENU */
         .dropdown { position: relative; display: inline-block; }
-        .dropdown-content {
-            display: none; position: absolute; background-color: #ffffff; min-width: 200px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 8px; top: 100%; left: 0; padding: 10px 0; z-index: 1001;
-        }
+        .dropdown-content { display: none; position: absolute; background-color: #ffffff; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 8px; top: 100%; left: 0; padding: 10px 0; z-index: 1001; }
         .dropdown-content a { color: #0d3b2e !important; display: block; padding: 10px 20px !important; font-size: 14px !important; font-weight: 500 !important; }
         .dropdown-content a:hover { background-color: #f4f7f5; color: #198754 !important; }
         .dropdown:hover .dropdown-content { display: block; }
+        
+        .dropdown-submenu { position: relative; }
+        .dropdown-submenu-content { display: none; position: absolute; left: 100%; top: 0; background-color: #ffffff; min-width: 380px; box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 8px; padding: 10px 0; z-index: 1002; }
+        .dropdown-submenu:hover .dropdown-submenu-content { display: block; }
+        .sub-header { background-color: #fef9e7 !important; font-weight: 700 !important; color: #0d3b2e !important; padding: 10px 20px !important; margin-top: 5px; border-bottom: 1px solid #e0d8b0; pointer-events: none; text-transform: uppercase; font-size: 11px !important; letter-spacing: 0.8px; }
 
         /* KONTEN ALUR PENDAFTARAN */
         .alur-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; margin: 50px 0; }
@@ -47,87 +47,32 @@
         .card-alur:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
         .card-alur i { font-size: 40px; color: #198754; margin-bottom: 20px; }
         
-        /* DESAIN KOTAK PERSYARATAN */
-        .syarat-box { 
-            background: #ffffff; 
-            padding: 50px; 
-            border-radius: 25px; 
-            box-shadow: 0 15px 40px rgba(13, 59, 46, 0.05); 
-            margin-bottom: 60px; 
-            border: 1px solid #eef1f0; 
-            position: relative;
-            overflow: hidden;
-        }
-        .syarat-box::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #0d3b2e, #198754, #D4AF37);
-        }
+        .syarat-box { background: #ffffff; padding: 50px; border-radius: 25px; box-shadow: 0 15px 40px rgba(13, 59, 46, 0.05); margin-bottom: 60px; border: 1px solid #eef1f0; position: relative; overflow: hidden; }
+        .syarat-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, #0d3b2e, #198754, #D4AF37); }
         .syarat-box h3 { color: #0d3b2e; font-size: 28px; margin-bottom: 10px; font-family: 'Montserrat', sans-serif; text-align: center; }
         .syarat-box p.desc { text-align: center; color: #666; margin-bottom: 40px; font-size: 16px; }
         
         .syarat-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .syarat-list li { 
-            list-style: none; 
-            display: flex; 
-            align-items: center; 
-            gap: 15px; 
-            font-size: 15px; 
-            color: #2b3a33; 
-            font-weight: 500;
-            background: #fdfefe; 
-            padding: 15px 20px; 
-            border-radius: 12px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03); 
-            border: 1px solid #f0f2f1;
-            border-left: 5px solid #198754;
-            transition: all 0.3s ease; 
-        }
-        .syarat-list li:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(25, 135, 84, 0.1);
-            border-left-color: #D4AF37;
-        }
-        .syarat-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 38px;
-            height: 38px;
-            background: #eef7f2;
-            color: #198754;
-            border-radius: 50%;
-            font-size: 16px;
-            flex-shrink: 0;
-            transition: all 0.3s ease;
-        }
-        .syarat-list li:hover .syarat-icon {
-            background: #D4AF37;
-            color: white;
-            transform: rotate(360deg);
-        }
+        .syarat-list li { list-style: none; display: flex; align-items: center; gap: 15px; font-size: 15px; color: #2b3a33; font-weight: 500; background: #fdfefe; padding: 15px 20px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #f0f2f1; border-left: 5px solid #198754; transition: all 0.3s ease; }
+        .syarat-list li:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(25, 135, 84, 0.1); border-left-color: #D4AF37; }
+        .syarat-icon { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; background: #eef7f2; color: #198754; border-radius: 50%; font-size: 16px; flex-shrink: 0; transition: all 0.3s ease; }
+        .syarat-list li:hover .syarat-icon { background: #D4AF37; color: white; transform: rotate(360deg); }
 
-        /* KOTAK INFO BIAYA & LOKASI */
         .cta-box { margin-bottom: 80px; background: linear-gradient(135deg, #0d3b2e, #146c43); padding: 45px; border-radius: 25px; color: white; text-align: center; position: relative; overflow: hidden; }
         .cta-box h3 { font-size: 26px; margin-bottom: 10px; font-family: 'Montserrat', sans-serif; }
-        
         .cta-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 25px; }
-        
         .btn-wa { background: #25D366; color: white; padding: 14px 30px; border-radius: 50px; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; }
         .btn-wa:hover { transform: scale(1.05); box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); }
-        
         .btn-map { background: #ffffff; color: #0d3b2e; padding: 14px 30px; border-radius: 50px; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; }
         .btn-map:hover { transform: scale(1.05); box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3); color: #198754; }
 
         footer { background: #07221a; color: rgba(255,255,255,0.7); text-align: center; padding: 30px 0; margin-top: 40px; }
 
         @media(max-width: 768px) {
-            /* PERBAIKAN REVISI MOBILE */
             body { padding-top: 220px !important; }
             .navbar { flex-direction: column !important; gap: 15px !important; }
             .menu { flex-wrap: wrap !important; justify-content: center !important; }
+            .dropdown-submenu-content { left: 0; top: 100%; min-width: 250px; }
             .alur-grid { grid-template-columns: 1fr; }
             .syarat-box { padding: 40px 20px; }
             .cta-buttons { flex-direction: column; }
@@ -144,10 +89,20 @@
             <div class="menu">
                 <a href="index.html">Home</a>
                 <div class="dropdown">
-                    <a href="tentang.html">Tentang <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
+                    <a href="#">Tentang <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
                     <div class="dropdown-content">
                         <a href="sejarah.html">Sejarah Berdirinya</a>
-                        <a href="pimpinan.html">Profil Pimpinan</a>
+                        <div class="dropdown-submenu">
+                            <a href="#">Profil Pimpinan <i class="fa-solid fa-chevron-right" style="float: right; margin-top: 5px;"></i></a>
+                            <div class="dropdown-submenu-content">
+                                <a class="sub-header">Pimpinan Pondok</a>
+                                <a href="#">- KH Achmad Faisal Hadziq S.Sos.I M.M</a>
+                                <a class="sub-header">Wakil Pimpinan Pondok</a>
+                                <a href="#">- Dr. KH Dini Arifian, S.E, M.M</a>
+                                <a href="#">- Dr. Hj. Zakiyya Tunnufus, S.E., M.M.</a>
+                                <a href="#">- Hj. Ilmi Albadiah, S.Kom., M,M.</a>
+                            </div>
+                        </div>
                         <a href="visi-misi.html">Visi & Misi</a>
                     </div>
                 </div>

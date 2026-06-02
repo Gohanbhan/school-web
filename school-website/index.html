@@ -53,11 +53,11 @@
         .btn-primary { background: #198754; color: white; box-shadow: 0 0 20px rgba(25, 135, 84, 0.4); }
         .btn-primary:hover { background: #146c43; transform: translateY(-2px); box-shadow: 0 0 30px rgba(25, 135, 84, 0.6); }
 
-        /* AKREDITASI BANNER (BARU) */
+        /* AKREDITASI BANNER */
         .akreditasi-banner { background: #ffffff; padding: 60px 0; border-bottom: 5px solid #D4AF37; }
         .akreditasi-box { display: inline-block; background: linear-gradient(135deg, #FFD700, #F39C12); color: #0d3b2e; padding: 20px 50px; border-radius: 50px; font-size: 32px; font-weight: 900; box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3); text-transform: uppercase; }
 
-        /* Floating Stats Layout */
+        /* Stats */
         .stats { background: #f4f7f5; padding: 60px 0; margin-top: -50px; position: relative; z-index: 10; }
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; text-align: center; }
         .stat-box { background: white; padding: 35px 25px; border-radius: 25px; box-shadow: 0 15px 35px rgba(13, 59, 46, 0.06); transition: 0.4s ease; }
@@ -110,6 +110,7 @@
 </head>
 <body>
     <nav>
+<nav>
         <div class="container navbar">
             <a href="index.html" class="logo-container">
                 <img src="logo.png" alt="Logo La Tansa 2">
@@ -121,15 +122,17 @@
                     <a href="#">Tentang <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
                     <div class="dropdown-content">
                         <a href="sejarah.html">Sejarah Berdirinya</a>
+                        <!-- Menu Pendiri Pondok diletakkan di atas Profil Pimpinan -->
+                        <a href="pendiri.html">Profil Pendiri</a>
                         <div class="dropdown-submenu">
                             <a href="#">Profil Pimpinan <i class="fa-solid fa-chevron-right" style="float: right; margin-top: 5px;"></i></a>
                             <div class="dropdown-submenu-content">
                                 <a class="sub-header">Pimpinan Pondok</a>
-                                <a href="#">- KH Achmad Faisal Hadziq S.Sos.I M.M</a>
+                                <a href="ky-faisal.html">- KH Achmad Faisal Hadziq S.Sos.I M.M</a>
                                 <a class="sub-header">Wakil Pimpinan Pondok</a>
-                                <a href="#">- Dr. KH Dini Arifian, S.E, M.M</a>
-                                <a href="#">- Dr. Hj. Zakiyya Tunnufus, S.E., M.M.</a>
-                                <a href="#">- Hj. Ilmi Albadiah, S.Kom., M,M.</a>
+                                <a href="ky-dini.html">- Dr. KH Dini Arifian, S.E, M.M</a>
+                                <a href="ny-zakiyah.html">- Dr. Hj. Zakiyya Tunnufus, S.E., M.M.</a>
+                                <a href="ny-ilmi.html">- Hj. Ilmi Albadiah, S.Kom., M,M.</a>
                             </div>
                         </div>
                         <a href="visi-misi.html">Visi & Misi</a>
@@ -141,6 +144,7 @@
             </div>
         </div>
     </nav>
+    </nav>
 
     <section class="hero">
         <div class="container hero-content" data-aos="zoom-in" data-aos-duration="1200">
@@ -150,7 +154,7 @@
         </div>
     </section>
 
-    <!-- AKREDITASI SECTION (BARU) -->
+    <!-- AKREDITASI SECTION -->
     <section class="akreditasi-banner">
         <div class="container" style="text-align: center;">
             <div class="akreditasi-box" data-aos="fade-up">
@@ -194,11 +198,10 @@
         </div>
     </section>
 
-<div class="alumni-box">
+    <div class="alumni-box">
         <div class="container" data-aos="fade-up">
             <h4>Basis Sebaran Alumni Perguruan Tinggi</h4>
             <p>Alumni Pondok Pesantren La Tansa 2 telah tersebar di berbagai perguruan tinggi ternama Dalam dan Luar Negeri, di antaranya:</p>
-            
             <div class="alumni-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 30px; text-align: left; font-size: 14px;">
                 <ul style="list-style: none;">
                     <li><i class="fa-solid fa-graduation-cap" style="color: #198754; margin-right: 8px;"></i> IPB University</li>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil Pendiri - Pondok Pesantren La Tansa 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <style>
+        /* Reset Global - Sama dengan Index */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: #fdfefe; color: #2b3a33; line-height: 1.8; overflow-x: hidden; font-size: 16px; padding-top: 100px; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; }
+        .container { width: 90%; max-width: 1200px; margin: auto; }
+
+        /* Navbar - Sama Persis dengan Index */
+        nav { position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(13, 59, 46, 0.95); backdrop-filter: blur(15px); box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-bottom: none !important; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
+        .logo-container { display: flex; align-items: center; gap: 12px; color: white; font-weight: 700; font-size: 22px; text-decoration: none; animation: slideInLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+        .logo-container img { height: 48px; }
+        .logo { font-weight: 600; color: white; }
+        .logo span { color: #D4AF37; font-weight: 700; }
+        @keyframes slideInLeft { 0% { opacity: 0; transform: translateX(-40px); } 100% { opacity: 1; transform: translateX(0); } }
+        .menu { display: flex; gap: 10px; align-items: center; }
+        .menu a { color: rgba(255,255,255,0.85); font-weight: 500; font-size: 15px; padding: 8px 16px; border-radius: 8px; transition: all 0.3s ease; text-decoration: none; }
+        .menu a:hover, .menu a.active { background: rgba(255, 255, 255, 0.15); color: #D4AF37; }
+        .menu a.active { font-weight: 600; }
+        
+        /* DROPDOWN - Sama Persis */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #ffffff; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 8px; top: 100%; left: 0; padding: 10px 0; z-index: 1001; }
+        .dropdown-content a { color: #0d3b2e !important; display: block; padding: 10px 20px !important; font-size: 14px !important; font-weight: 500 !important; }
+        .dropdown-content a:hover { background-color: #f4f7f5; color: #198754 !important; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-submenu { position: relative; }
+        .dropdown-submenu-content { display: none; position: absolute; left: 100%; top: 0; background-color: #ffffff; min-width: 380px; box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 8px; padding: 10px 0; z-index: 1002; }
+        .dropdown-submenu:hover .dropdown-submenu-content { display: block; }
+        .sub-header { background-color: #fef9e7 !important; font-weight: 700 !important; color: #0d3b2e !important; padding: 10px 20px !important; margin-top: 5px; border-bottom: 1px solid #e0d8b0; pointer-events: none; text-transform: uppercase; font-size: 11px !important; letter-spacing: 0.8px; }
+
+        /* Halaman Pendiri Styling */
+        .pendiri-main { padding: 80px 0; }
+        .hero-profile { text-align: center; margin-bottom: 50px; }
+        .profile-img { width: 300px; height: 350px; object-fit: cover; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); border: 6px solid #fff; margin-bottom: 25px; }
+        .content-body { background: #fff; padding: 50px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .content-body h3 { color: #0d3b2e; font-size: 24px; margin: 40px 0 20px 0; border-bottom: 3px solid #D4AF37; display: inline-block; padding-bottom: 5px; }
+        .content-body p { margin-bottom: 20px; text-align: justify; color: #333; line-height: 1.9; }
+        .highlight-box { background: #f4f7f5; padding: 30px; border-radius: 15px; margin: 30px 0; border-left: 5px solid #198754; box-shadow: inset 0 0 20px rgba(0,0,0,0.02); }
+        .highlight-box p { margin-bottom: 15px; }
+        .highlight-box p:last-child { margin-bottom: 0; }
+        
+        /* Grid untuk Karya Tulis */
+        .karya-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+        .karya-card { background: #fdfefe; border: 1px solid #eef1f0; padding: 25px; border-radius: 15px; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+        .karya-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-color: #198754; }
+        .karya-card h4 { color: #198754; font-size: 18px; margin-bottom: 10px; }
+        .karya-card p { font-size: 14px; margin-bottom: 0; color: #555; }
+
+        footer { background: linear-gradient(135deg, #07221a, #0d3b2e); color: rgba(255,255,255,0.75); padding: 40px 0; text-align: center; font-size: 15px; margin-top: 50px; }
+        
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column !important; gap: 15px !important; padding: 15px 0 !important; }
+            .logo-container { width: 100%; justify-content: center; }
+            .menu { flex-wrap: wrap !important; justify-content: center !important; gap: 5px !important; width: 100%; }
+            .content-body { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container navbar">
+            <a href="index.html" class="logo-container">
+                <img src="logo.png" alt="Logo La Tansa 2">
+                <div class="logo">Pondok Pesantren La Tansa <span>2</span></div>
+            </a>
+            <div class="menu">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <a href="#">Tentang <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
+                    <div class="dropdown-content">
+                        <a href="sejarah.html">Sejarah Berdirinya</a>
+                        <a href="pendiri.html" style="background: #f4f7f5; color: #198754 !important; font-weight: 700 !important;">Profil Pendiri</a>
+                        <div class="dropdown-submenu">
+                            <a href="#">Profil Pimpinan <i class="fa-solid fa-chevron-right" style="float: right; margin-top: 5px;"></i></a>
+                            <div class="dropdown-submenu-content">
+                                <a class="sub-header">Pimpinan Pondok</a>
+                                <a href="ky-faisal.html">- KH Achmad Faisal Hadziq S.Sos.I M.M</a>
+                                <a class="sub-header">Wakil Pimpinan Pondok</a>
+                                <a href="ky-dini.html">- Dr. KH Dini Arifian, S.E, M.M</a>
+                                <a href="ny-zakiyah.html">- Dr. Hj. Zakiyya Tunnufus, S.E., M.M.</a>
+                                <a href="ny-ilmi.html">- Hj. Ilmi Albadiah, S.Kom., M,M.</a>
+                            </div>
+                        </div>
+                        <a href="visi-misi.html">Visi & Misi</a>
+                    </div>
+                </div>
+                <a href="program.html">Program</a>
+                <a href="galeri.html">Galeri</a>
+                <a href="pendaftaran.html">Alur Pendaftaran</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pendiri-main">
+        <div class="container">
+            <div class="hero-profile" data-aos="fade-down">
+                <img src="Drs. KH. Ahmad Rifai Arief.png" alt="Drs. KH. Ahmad Rifai Arief" class="profile-img">
+                <h1 style="color: #0d3b2e;">Drs. K.H. Ahmad Rifa’i Arief</h1>
+                <p style="color: #198754; font-weight: 600; font-size: 1.2rem;">(1942 – 1997)</p>
+            </div>
+
+            <div class="content-body" data-aos="fade-up">
+                <p><strong>K.H. Ahmad Rifa’i Arief</strong> (lahir 30 Desember 1942 – meninggal 16 Juni 1997 pada umur 54 tahun) adalah seorang kiai perintis dan pendiri Pondok Pesantren Daar el-Qolam, Pondok Pesantren La Tansa, Pondok Pesantren Sakinah La Lahwa, serta Sekolah Tinggi Ilmu Ekonomi/Sekolah Tinggi Agama Islam (STIE/STAI) La Tansa Mashiro. Ia wafat pada usia yang belum terlampau tua akibat serangan jantung, meninggalkan legasi dakwah dan pendidikan Islam yang luar biasa.</p>
+                
+                <h3 data-aos="fade-right">Masa Kecil</h3>
+                <p>Ahmad Rifai Arief adalah putra sulung dari H. Qasad Mansyur bin Markai Mansyur dan Hj. Hindun Masthufah binti Rubama. Ayahnya merupakan seorang guru agama pada Madrasah Ibtidaiyah Masyariqul Anwar, yang terletak di kampung Pasir Gintung, Kecamatan Balaraja (sekarang Jayanti), Tangerang. Oleh sebab itulah beliau digembleng dan dibesarkan dalam lingkungan yang taat serta sarat dengan nilai-nilai agama sejak dini.</p>
+                <p>Sejak kecil, kedua orangtuanya memanggil Rifa’i dengan panggilan kesayangan yaitu <strong>“Lilip“</strong>. Kelak sampai beliau dewasa, orang-orang di kampungnya lebih mengenal dan memanggilnya demikian. Ia memiliki 3 orang adik laki-laki serta 4 orang adik perempuan, yaitu Umrah, Dhofiah, Farihah, Huwaenah, Ahmad Syahiduddin, Nahrul Ilmi Arief dan Odhi Rosikhuddin. Di mata adik-adiknya, Rifa’i menjadi teladan; karenanya beliau sangat disayangi dan dihormati oleh mereka.</p>
+
+                <h3 data-aos="fade-right">Perjalanan Pendidikan</h3>
+                <p>Perjalanan pendidikannya dimulai di Sekolah Rakyat (SR) Sumur Bandung, Balaraja. Pada umur 7 tahun beliau dimasukkan ke sekolah tersebut, namun karena jiwa beliau yang telah melekat dengan agama, tepat pada tahun ketiga ayahnya memindahkan pendidikannya ke Madrasah Masyariqul Anwar di Caringin agar lebih banyak memperoleh pengetahuan agama dan belajar mengaji al-Quran langsung kepada K.H. Syihabudin Makmun.</p>
+                <p>Setelah tamat pada tahun 1958, ayahnya menghendaki Rifa’i belajar pada institusi bercorak modern. Dipilihlah <strong>Pondok Modern Darussalam Gontor</strong>, Ponorogo. Di Gontor, Rifa’i diterima di kelas 1B. Beliau dikenal sebagai santri yang rajin, pandai berpidato, serta memiliki tulisan yang indah (baik huruf latin maupun Arab). Tekad dan niatnya yang bulat untuk memperdalam ilmu menanamkan semangat membara demi tegaknya agama Allah.</p>
+                <p>Kecerdasan, sifat bijaksana, dan wibawa tingginya mengantarkan beliau menjadi ketua organisasi pelajar pondok Gontor (saat itu bernama Pelajar Islam Indonesia / PII cabang Gontor) pada tahun 1965-1966. Bahkan selama menjadi santri, beliau dilantik oleh kiainya (K.H. Imam Zarkasyi) sebagai seorang guru (ustadz) sekaligus sekretaris pribadi yang bertugas menyusun konsep kebijakan pondok dan menyunting bahan ceramah. Pengalaman inilah yang menanamkan fondasi kepemimpinan yang kuat dalam dirinya.</p>
+
+                <div class="highlight-box" data-aos="zoom-in">
+                    <h3 style="margin-top: 0; font-size: 22px;">Perihal Pendirian Pesantren & Tantangan</h3>
+                    <p>Setelah mengabdi di Gontor dan mengaji kitab-kitab kuning di Jawa Timur, Rifa’i kembali ke kampung halamannya. Pada hari Jumat, 19 Desember 1967, beliau bersama ayahnya dan tokoh masyarakat merumuskan pendirian lembaga. Sebulan kemudian, tepatnya pada <strong>20 Januari 1968</strong>, dengan berharap ridha Allah, beliau mendirikan Pondok Pesantren Daar el-Qolam.</p>
+                    <p>Pada awalnya, proses belajar mengajar hanya diikuti 22 orang di bekas dapur neneknya yang direnovasi. Tantangan besar pun datang; sistem modern yang mewajibkan santri berbahasa Indonesia, Arab, dan Inggris mendapat cercaan tajam dari masyarakat sekitar. Beliau bahkan dianggap "meniru budaya barat" dan "mengikuti bahasa orang kafir". Namun, berkat ketabahan dan keikhlasan KH. Ahmad Rifa’i Arief dalam mendidik santri-santrinya, tantangan itu membuahkan hasil. Daar el-Qolam berkembang pesat menjadi institusi pendidikan yang besar dan disegani.</p>
+                </div>
+
+                <h3 data-aos="fade-right">Mendapat Bantuan & Ekspansi Pendidikan</h3>
+                <p>Ketokohannya yang makin bersinar membuat beliau sering bertukar pikiran dengan ulama besar, salah satunya adalah Bapak Mohammad Natsir. Melalui bantuan Pak Natsir, pada tahun 1983 pondok yang diasuhnya mendapatkan bantuan dana dari Kerajaan Arab Saudi untuk membangun fasilitas asrama (Gedung Saudi). Santri pun berdatangan dari seluruh pelosok Nusantara hingga mancanegara.</p>
+                <p>Dengan disiplin tinggi dan semangat jihad yang terus menggelora, dalam usia yang relatif muda beliau berhasil melakukan ekspansi dan merintis berbagai lembaga pendidikan terkemuka lainnya:</p>
+                <ul style="margin-left: 20px; margin-bottom: 20px; line-height: 1.8;">
+                    <li><i class="fa-solid fa-building-columns" style="color:#198754; margin-right: 10px;"></i> <strong>Pondok Pesantren La Tansa (1989)</strong> di Cipanas, Lebak, Banten.</li>
+                    <li><i class="fa-solid fa-graduation-cap" style="color:#198754; margin-right: 10px;"></i> <strong>STIE & STAI La Tansa Mashiro (1993)</strong> di Rangkasbitung, sebagai wadah pendidikan tinggi.</li>
+                    <li><i class="fa-solid fa-tree" style="color:#198754; margin-right: 10px;"></i> <strong>Pesantren Wisata Sakinah La Lahwa (1995)</strong> di Pandeglang, sebuah pesantren bernuansa alam untuk tafakkur dan tadabbur.</li>
+                </ul>
+
+                <h3 data-aos="fade-right">Sumbangsih Karya & Pemikiran</h3>
+                <p>Selain membangun institusi fisik, K.H. Ahmad Rifa’i Arief juga meninggalkan jejak intelektual berupa karya tulis yang mendalam tentang kehidupan dan agama umat Islam:</p>
+                
+                <div class="karya-grid">
+                    <div class="karya-card" data-aos="fade-up" data-aos-delay="100">
+                        <h4>1. Perang Pemikiran</h4>
+                        <p>Mengkritisi arus globalisasi dan modernisasi sebagai senjata barat (ghazwu al-fikr) yang perlahan merusak ideologi Islam, yang hanya bisa dihadapi dengan keimanan dan ketaqwaan.</p>
+                    </div>
+                    <div class="karya-card" data-aos="fade-up" data-aos-delay="150">
+                        <h4>2. Lingkaran Krisis</h4>
+                        <p>Menyoroti umat Islam abad 20 yang terjebak krisis identitas, orientasi sosial, dan keberanian, serta mengingatkan bahwa Islam adalah tuntunan utuh kehidupan, bukan sekadar ibadah ritual.</p>
+                    </div>
+                    <div class="karya-card" data-aos="fade-up" data-aos-delay="200">
+                        <h4>3. Mawas Diri</h4>
+                        <p>Pesan bahwa perubahan sosial umat Islam harus selalu diawali dengan perubahan intelektual dan pemahaman syariat dari dalam diri setiap individu.</p>
+                    </div>
+                    <div class="karya-card" data-aos="fade-up" data-aos-delay="250">
+                        <h4>4. The Way of Life</h4>
+                        <p>Menegaskan bahwa al-Qur’an adalah pegangan hidup mutlak. Mengkritik anggapan bahwa Islam hanyalah urusan privasi antara manusia dengan Tuhannya.</p>
+                    </div>
+                    <div class="karya-card" data-aos="fade-up" data-aos-delay="300">
+                        <h4>5. Sebaik-baik Busana (Taqwa)</h4>
+                        <p>Menyatakan orang besar adalah ia yang mampu menaklukkan hawa nafsu. Tanpa pakaian ketaqwaan, manusia hakikatnya telanjang meski berbusana mewah.</p>
+                    </div>
+                    <div class="karya-card" data-aos="fade-up" data-aos-delay="350">
+                        <h4>6. Jual Beli dengan Allah</h4>
+                        <p>Mengilustrasikan bahwa manusia hidup dalam kontrak spiritual dengan Allah; bahwa kenikmatan adalah ujian dan iman adalah bentuk penyerahan mutlak hamba.</p>
+                    </div>
+                    <div class="karya-card" data-aos="fade-up" data-aos-delay="400">
+                        <h4>7. Kunci Ketentraman</h4>
+                        <p>Menjelaskan bahwa dzikir dan tafakur adalah benteng penjaga manusia dari setiap kegelisahan dan ketakutan dalam mengarungi kehidupan.</p>
+                    </div>
+                    <div class="karya-card" data-aos="fade-up" data-aos-delay="450">
+                        <h4>8. Syukur Nikmat</h4>
+                        <p>Membahas fenomena kufur nikmat yang utamanya disebabkan oleh ketidaktahuan manusia atas sumber rezeki dan jiwa yang telah dirusak hawa nafsu.</p>
+                    </div>
+                    <div class="karya-card" data-aos="fade-up" data-aos-delay="500">
+                        <h4>9. Apa Sumbangsihmu?</h4>
+                        <p>Sebuah ajakan reflektif bagi umat untuk menyumbangkan nilai sosial, menyoroti hilangnya solidaritas dan kesetiakawanan di era modern.</p>
+                    </div>
+                </div>
+
+                <h3 data-aos="fade-right" style="margin-top: 50px;">Akhir Hayat & Regenerasi Kepemimpinan</h3>
+                <p>Lebih kurang 30 tahun membangun pondok pesantren, kesibukan beliau semakin padat. Pada 14 Juni 1997, beliau menyampaikan khutbah di La Tansa dan pada 15 Juni pagi, memberikan nasihat terakhir perpisahan liburan kepada 2000 santrinya. Salah satu pesan mendalam yang diucapkan hari itu adalah: <em>"Anak-anakku yang perempuan, janganlah sekali-kali kalian melepaskan jilbab di hadapan khalayak umum."</em></p>
+                
+                <p>Siang harinya, tanggal 15 Juni 1997, beliau ditemukan terbaring di atas sajadah usai salat di kamarnya. Beliau berpulang ke Rahmatullah dengan tenang akibat serangan jantung.</p>
+
+                <p>Beliau wafat dengan meninggalkan sebuah wasiat kepemimpinan dan filosofi pendidikan yang amat agung: <strong>"Walaupun Rifa’i mati, pondok ini tidak boleh mati, ia mesti tetap hidup dengan sistemnya, bukan dengan kiyainya."</strong> Tongkat estafet kepemimpinan pun dengan mulus dilanjutkan oleh adik-adiknya, KH. Ahmad Syahiduddin dan Hj. Enah Huwaenah, beserta sang putra, K.H. Adrian Mafatihullah Karim. Semoga Allah SWT menerima beliau dalam golongan hamba yang didekatkan pada-Nya, Amin.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Pondok Pesantren La Tansa 2 | Website Resmi Terintegrasi</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, duration: 800 });
+    </script>
+</body>
+</html>

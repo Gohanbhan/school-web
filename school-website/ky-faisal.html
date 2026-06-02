@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil Pimpinan - Pondok Pesantren La Tansa 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <style>
+        /* Reset Global */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: #fdfefe; color: #2b3a33; line-height: 1.8; overflow-x: hidden; font-size: 16px; padding-top: 100px; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; }
+        .container { width: 90%; max-width: 1200px; margin: auto; }
+
+        /* Navbar Diperbaiki */
+        nav { position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(13, 59, 46, 0.95); backdrop-filter: blur(15px); box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-bottom: none !important; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
+        
+        /* Memastikan logo tetap di kiri */
+        .logo-container { flex: 0 0 auto; display: flex; align-items: center; gap: 12px; color: white; font-weight: 700; font-size: 22px; text-decoration: none; animation: slideInLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+        .logo-container img { height: 48px; }
+        .logo { font-weight: 600; color: white; }
+        .logo span { color: #D4AF37; font-weight: 700; }
+        
+        @keyframes slideInLeft { 0% { opacity: 0; transform: translateX(-40px); } 100% { opacity: 1; transform: translateX(0); } }
+        
+        .menu { display: flex; gap: 10px; align-items: center; }
+        .menu a { color: rgba(255,255,255,0.85); font-weight: 500; font-size: 15px; padding: 8px 16px; border-radius: 8px; transition: all 0.3s ease; text-decoration: none; }
+        .menu a:hover, .menu a.active { background: rgba(255, 255, 255, 0.15); color: #D4AF37; }
+        .menu a.active { font-weight: 600; }
+        
+        /* Dropdown */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #ffffff; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 8px; top: 100%; left: 0; padding: 10px 0; z-index: 1001; }
+        .dropdown-content a { color: #0d3b2e !important; display: block; padding: 10px 20px !important; font-size: 14px !important; font-weight: 500 !important; }
+        .dropdown-content a:hover { background-color: #f4f7f5; color: #198754 !important; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-submenu { position: relative; }
+        .dropdown-submenu-content { display: none; position: absolute; left: 100%; top: 0; background-color: #ffffff; min-width: 380px; box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 8px; padding: 10px 0; z-index: 1002; }
+        .dropdown-submenu:hover .dropdown-submenu-content { display: block; }
+        .sub-header { background-color: #fef9e7 !important; font-weight: 700 !important; color: #0d3b2e !important; padding: 10px 20px !important; margin-top: 5px; border-bottom: 1px solid #e0d8b0; pointer-events: none; text-transform: uppercase; font-size: 11px !important; letter-spacing: 0.8px; }
+
+        /* Halaman Profil Styling */
+        .profile-main { padding: 80px 0; }
+        .hero-profile { text-align: center; margin-bottom: 50px; }
+        .profile-img { width: 300px; height: 350px; object-fit: cover; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); border: 6px solid #fff; margin-bottom: 25px; }
+        .content-body { background: #fff; padding: 50px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .content-body h3 { color: #0d3b2e; font-size: 22px; margin: 35px 0 15px 0; border-bottom: 2px solid #D4AF37; display: inline-flex; align-items: center; gap: 10px; padding-bottom: 5px; }
+        .content-body p { margin-bottom: 20px; text-align: justify; color: #444; line-height: 1.9; }
+        
+        .highlight-box { background: #f4f7f5; padding: 25px 30px; border-radius: 15px; margin: 30px 0; border-left: 5px solid #198754; box-shadow: inset 0 0 20px rgba(0,0,0,0.02); }
+        .highlight-box p { margin-bottom: 0; }
+        .doa-box { text-align: center; font-style: italic; color: #198754; font-weight: 500; font-size: 1.1rem; padding: 30px; border-top: 1px solid #eee; margin-top: 40px; }
+        
+        footer { background: linear-gradient(135deg, #07221a, #0d3b2e); color: rgba(255,255,255,0.75); padding: 40px 0; text-align: center; font-size: 15px; margin-top: 50px; }
+        
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column !important; gap: 15px !important; padding: 15px 0 !important; }
+            .logo-container { width: 100%; justify-content: center; }
+            .menu { flex-wrap: wrap !important; justify-content: center !important; gap: 5px !important; width: 100%; }
+            .content-body { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container navbar">
+            <a href="index.html" class="logo-container">
+                <img src="logo.png" alt="Logo La Tansa 2">
+                <div class="logo">Pondok Pesantren La Tansa <span>2</span></div>
+            </a>
+            <div class="menu">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <a href="#">Tentang <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
+                    <div class="dropdown-content">
+                        <a href="sejarah.html">Sejarah Berdirinya</a>
+                        <a href="pendiri.html">Profil Pendiri</a>
+                        <div class="dropdown-submenu">
+                            <a href="#">Profil Pimpinan <i class="fa-solid fa-chevron-right" style="float: right; margin-top: 5px;"></i></a>
+                            <div class="dropdown-submenu-content">
+                                <a class="sub-header">Pimpinan Pondok</a>
+                                <a href="ky-faisal.html" style="background: #f4f7f5; color: #198754 !important; font-weight: 700 !important;">- KH Achmad Faisal Hadziq S.Sos.I M.M</a>
+                                <a class="sub-header">Wakil Pimpinan Pondok</a>
+                                <a href="ky-dini.html">- Dr. KH Dini Arifian, S.E, M.M</a>
+                                <a href="ny-zakiyah.html">- Dr. Hj. Zakiyya Tunnufus, S.E., M.M.</a>
+                                <a href="ny-ilmi.html">- Hj. Ilmi Albadiah, S.Kom., M,M.</a>
+                            </div>
+                        </div>
+                        <a href="visi-misi.html">Visi & Misi</a>
+                    </div>
+                </div>
+                <a href="program.html">Program</a>
+                <a href="galeri.html">Galeri</a>
+                <a href="pendaftaran.html">Alur Pendaftaran</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="profile-main">
+        <div class="container">
+            <div class="hero-profile" data-aos="fade-down">
+                <img src="ky-faisal.png" alt="KH. Achmad Faisal Hadziq" class="profile-img" onerror="this.src='https://via.placeholder.com/300x350?text=Foto+Kyai+Faisal'">
+                <h1 style="color: #0d3b2e;">K.H. Achmad Faisal Hadziq, S.Sos.I., M.M.</h1>
+                <p style="color: #198754; font-weight: 600; font-size: 1.2rem;">Pimpinan Pondok Pesantren La Tansa 2</p>
+            </div>
+
+            <div class="content-body" data-aos="fade-up">
+                
+                <h3 data-aos="fade-right"><i class="fa-solid fa-seedling" style="color: #198754;"></i> Masa Kecil & Latar Belakang</h3>
+                <p>Beliau merupakan anak kelima dari pendiri Pondok Pesantren Daar El Qolam dan La Tansa, yakni almarhum Drs. K.H. Ahmad Rifa'i Arief. Lahir pada tanggal 28 Oktober 1978 di Gintung, Tangerang, beliau tumbuh dan berkembang dalam lingkungan yang sangat kental dengan nilai-nilai keislaman serta tradisi pendidikan pesantren.</p>
+                <p>Sejak kecil, beliau telah menunjukkan semangat belajar yang tinggi dan memendam cita-cita kuat untuk menjadi seorang pengusaha sukses. Perjalanan pendidikan formalnya dimulai di SDN Cikande II, tempat di mana beliau menempuh pendidikan dasar hingga berhasil lulus.</p>
+
+                <h3 data-aos="fade-right"><i class="fa-solid fa-graduation-cap" style="color: #198754;"></i> Jejak Pendidikan & Aktivisme</h3>
+                <p>Setelah menyelesaikan pendidikan dasar, beliau melanjutkan studinya ke jenjang SMP di Pondok Pesantren La Tansa, kemudian meneruskan pendidikan Madrasah Aliyah (MA) di Pondok Pesantren Daar El Qolam (PPDQ), yang saat itu dipimpin oleh ayahandanya tercinta. Selama mondok di PPDQ, beliau tidak hanya fokus pada akademik tetapi juga aktif dalam berbagai kegiatan pesantren. Pada tahun 1998 hingga 1999, beliau dipercaya menjabat sebagai bagian keamanan, yang menuntutnya untuk memiliki tanggung jawab besar dalam menjaga ketertiban dan keamanan lingkungan pesantren. Selain itu, selama masa liburannya, beliau memanfaatkan waktu dengan mengajar di Pondok Pesantren Daar El Qolam dan La Tansa.</p>
+                <p>Setelah lulus dari PPDQ pada tahun 1999, beliau melaksanakan tugas pengabdian dengan mengajar selama 19 tahun. Masa pengabdian yang panjang ini menjadi bukti dedikasinya dalam dunia pendidikan, khususnya dalam mencetak generasi penerus yang berakhlak mulia dan berilmu. Di tengah kesibukannya sebagai seorang pengajar, beliau tetap berusaha melanjutkan pendidikannya ke jenjang yang lebih tinggi dengan berkuliah di IAIN Syarif Hidayatullah Jakarta. Selain menempuh pendidikan formal, beliau juga aktif dalam berbagai organisasi kemahasiswaan, seperti Himpunan Mahasiswa Islam (HMI) Cabang Ciputat dan Badan Eksekutif Mahasiswa (BEM) IAIN Jakarta.</p>
+
+                <div class="highlight-box" data-aos="zoom-in">
+                    <p><strong>Pendidikan Tinggi:</strong> Pada tahun 2002, beliau berhasil meraih gelar Sarjana Sosial Islam (S.Sos.I) dari IAIN Syarif Hidayatullah Jakarta. Tidak berhenti di sana, beliau kembali melanjutkan pendidikan ke jenjang magister dengan mengambil program studi Manajemen di Perguruan Tinggi La Tansa Mashiro. Dengan kerja keras dan semangat belajar yang tinggi, beliau akhirnya menyelesaikan studinya dan meraih gelar Magister Manajemen (MM).</p>
+                </div>
+
+                <h3 data-aos="fade-right"><i class="fa-solid fa-hand-holding-heart" style="color: #198754;"></i> Dedikasi, Pengabdian & Inovasi</h3>
+                <p>Di samping kesibukan akademik dan pengabdiannya di pesantren, beliau juga berperan aktif dalam berbagai kegiatan sosial dan keagamaan. Dengan jiwa kepemimpinan yang kuat, beliau turut serta dalam berbagai program yang bertujuan untuk meningkatkan kualitas pendidikan pesantren serta kesejahteraan santri. Melalui pengalaman dan dedikasi yang dimilikinya, beliau terus berupaya menciptakan inovasi dalam sistem pembelajaran agar para santri dapat lebih siap menghadapi tantangan zaman.</p>
+
+                <h3 data-aos="fade-right"><i class="fa-solid fa-users" style="color: #198754;"></i> Kehidupan Keluarga</h3>
+                <p>Dalam kehidupan pribadinya, beliau menikah dengan Hj. Ilmi Albadiah, S.Kom., MM., dan dikaruniai dua orang anak, yaitu Amalia Naila Zukhrufa dan Maher Mu’aqil Arief.</p>
+
+                <div class="doa-box" data-aos="fade-up">
+                    "Semoga beliau senantiasa diberikan kekuatan, kebijaksanaan, serta kemudahan dalam mengemban amanah memimpin Pondok Pesantren La Tansa 2, sehingga mampu membawa pesantren ke arah yang lebih maju dan bermanfaat bagi umat. Aamiin yaa Rabbal ‘Aalamiin."
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Pondok Pesantren La Tansa 2 | Website Resmi Terintegrasi</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, duration: 800 });
+    </script>
+</body>
+</html>
