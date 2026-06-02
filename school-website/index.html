@@ -112,14 +112,11 @@
         @media (max-width: 768px) {
             /* Navbar Layout */
             .navbar { padding: 15px 5%; width: 100%; max-width: 100%; }
-            
-            /* FIX 1: Turunkan z-index logo agar tertutup menu saat dibuka */
             .logo-container { animation: none !important; z-index: 990; position: relative; }
             .logo-container img { height: 40px; }
             .logo { font-size: 18px; }
 
             /* Menampilkan Tombol Garis Tiga */
-            /* FIX 2: Pastikan ikon hamburger/X selalu di paling atas */
             .menu-toggle { display: flex; z-index: 1010; position: relative; }
 
             /* Animasi Tombol Garis Tiga Menjadi 'X' */
@@ -128,7 +125,6 @@
             .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
             /* Menu Sidebar (Muncul dari kanan) */
-            /* FIX 3: Set z-index menu agar menimpa logo tapi di bawah ikon 'X' */
             .menu { 
                 position: fixed; top: 0; right: -100%; width: 75%; height: 100vh; 
                 background: rgba(7, 34, 26, 0.98); 
@@ -138,26 +134,38 @@
                 transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
                 box-shadow: -5px 0 15px rgba(0,0,0,0.5); z-index: 1000;
                 overflow-y: auto;
+                /* FIX PENTING: Mencegah scroll / geser ke samping kanan pada menu */
+                overflow-x: hidden; 
             }
             .menu.is-active { right: 0; }
 
-            /* Link Menu Mobile & FIX 4: white-space normal agar teks turun kebawah jika kepanjangan */
-            .menu a { width: 100%; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); border-radius: 0; font-size: 16px; color: white; white-space: normal; line-height: 1.4; }
+            /* Link Menu Mobile */
+            .menu a { width: 100%; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); border-radius: 0; font-size: 16px; color: white; }
             .menu a:hover, .menu a.active { background: transparent; color: #D4AF37; padding-left: 5px; }
 
             /* Dropdown Mobile */
             .dropdown { width: 100%; }
-            .dropdown:hover .dropdown-content { display: none; }
+            .dropdown:hover .dropdown-content { display: none; } 
             .dropdown-submenu:hover .dropdown-submenu-content { display: none; }
             
             /* Logic klik dropdown mobile */
             .dropdown.is-active > .dropdown-content { display: block; position: static; background: transparent; box-shadow: none; padding: 0; margin-top: 0; border-radius: 0; }
             .dropdown-submenu.is-active > .dropdown-submenu-content { display: block; position: static; background: transparent; box-shadow: none; padding: 0; margin-top: 0; }
             
-            /* Konten Dropdown Mobile & FIX 5: Rapikan teks panjang di dalam submenu */
-            .dropdown-content a { color: rgba(255,255,255,0.8) !important; padding: 12px 0 12px 15px !important; border-bottom: 1px dashed rgba(255,255,255,0.1); font-size: 15px !important; white-space: normal !important; }
+            /* Konten Dropdown Mobile */
+            .dropdown-content a { color: rgba(255,255,255,0.8) !important; padding-left: 15px !important; border-bottom: 1px dashed rgba(255,255,255,0.1); font-size: 15px !important; }
             .dropdown-content a:hover { color: #D4AF37 !important; background: transparent !important; }
-            .dropdown-submenu-content a { padding-left: 30px !important; white-space: normal !important; }
+            
+            /* FIX PENTING: Memaksa teks nama yang panjang turun ke bawah */
+            .dropdown-submenu-content a { 
+                padding-left: 30px !important; 
+                padding-right: 15px !important; 
+                display: block !important;        /* Menonaktifkan gaya flexbox agar teks tidak ditarik sebaris */
+                white-space: normal !important;   /* Mengizinkan baris teks patah ke bawah */
+                word-wrap: break-word !important; /* Mencegah teks melebar ke kanan */
+                line-height: 1.5 !important;      /* Memberikan jarak spasi yang rapi antar baris nama */
+            }
+            
             .sub-header { background: transparent !important; color: #D4AF37 !important; border-bottom: none; font-size: 12px !important; padding: 15px 0 5px 15px !important; opacity: 0.7;}
             
             /* Animasi rotasi panah saat dropdown terbuka */
