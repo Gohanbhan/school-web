@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil Wakil Pimpinan - Pondok Pesantren La Tansa 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <style>
+        /* RESET & BASE */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { overflow-x: hidden; width: 100%; position: relative; font-family: 'Poppins', sans-serif; background: #fdfefe; color: #2b3a33; padding-top: 100px; line-height: 1.8; font-size: 16px; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; }
+        .container { width: 90%; max-width: 1200px; margin: auto; }
+
+        /* NAVBAR */
+        nav { position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(13, 59, 46, 0.95); backdrop-filter: blur(15px); box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
+        .logo-container { display: flex; align-items: center; gap: 12px; color: white; font-weight: 700; font-size: 22px; text-decoration: none; animation: slideInLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+        .logo-container img { height: 48px; }
+        .logo { font-weight: 600; color: white; }
+        .logo span { color: #D4AF37; font-weight: 700; }
+        @keyframes slideInLeft { 0% { opacity: 0; transform: translateX(-40px); } 100% { opacity: 1; transform: translateX(0); } }
+        
+        .menu { display: flex; gap: 10px; align-items: center; }
+        .menu a { color: rgba(255,255,255,0.85); font-weight: 500; font-size: 15px; padding: 8px 16px; border-radius: 8px; transition: all 0.3s ease; text-decoration: none; display: flex; align-items: center; justify-content: space-between;}
+        .menu a:hover, .menu a.active { background: rgba(255, 255, 255, 0.15); color: #D4AF37; }
+        .menu a.active { font-weight: 600; }
+
+        /* Hamburger & Dropdown */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; z-index: 1005; }
+        .menu-toggle .bar { width: 25px; height: 3px; background-color: white; border-radius: 3px; transition: all 0.3s ease-in-out; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #ffffff; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 8px; top: 100%; left: 0; padding: 10px 0; z-index: 1001; }
+        .dropdown-content a { color: #0d3b2e !important; display: block; padding: 10px 20px !important; font-size: 14px !important; font-weight: 500 !important; border-radius: 0; }
+        .dropdown-content a:hover { background-color: #f4f7f5; color: #198754 !important; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-submenu { position: relative; }
+        .dropdown-submenu-content { display: none; position: absolute; left: 100%; top: 0; background-color: #ffffff; min-width: 380px; box-shadow: 0px 8px 16px rgba(0,0,0,0.15); border-radius: 8px; padding: 10px 0; z-index: 1002; }
+        .dropdown-submenu:hover .dropdown-submenu-content { display: block; }
+        .sub-header { background-color: #fef9e7 !important; font-weight: 700 !important; color: #0d3b2e !important; padding: 10px 20px !important; margin-top: 5px; border-bottom: 1px solid #e0d8b0; pointer-events: none; text-transform: uppercase; font-size: 11px !important; letter-spacing: 0.8px; }
+
+        /* Halaman Profil Styling */
+        .profile-main { padding: 50px 0; }
+        .hero-profile { text-align: center; margin-bottom: 50px; }
+        .profile-img { width: 300px; height: 350px; object-fit: cover; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); border: 6px solid #fff; margin-bottom: 25px; }
+        .content-body { background: #fff; padding: 50px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .content-body h3 { color: #0d3b2e; font-size: 22px; margin: 35px 0 15px 0; border-bottom: 2px solid #D4AF37; display: inline-flex; align-items: center; gap: 10px; padding-bottom: 5px; }
+        .content-body p { margin-bottom: 20px; text-align: justify; color: #444; line-height: 1.9; }
+        .coming-soon-box { background: #fdf6d9; padding: 25px 30px; border-radius: 15px; margin: 30px 0; border-left: 5px solid #D4AF37; color: #5d4a1f; text-align: center; font-style: italic; }
+        footer { background: linear-gradient(135deg, #07221a, #0d3b2e); color: rgba(255,255,255,0.75); padding: 40px 0; text-align: center; font-size: 15px; margin-top: 50px; }
+        
+        /* RESPONSIVE MOBILE */
+        @media (max-width: 768px) {
+            .navbar { padding: 15px 5%; width: 100%; max-width: 100%; flex-direction: row !important; align-items: center; }
+            .logo-container { animation: none !important; z-index: 990; position: relative; max-width: 75%; gap: 10px; justify-content: flex-start; }
+            .logo-container img { height: 35px; } 
+            .logo { font-size: 13px; line-height: 1.3; white-space: normal; } 
+            .menu-toggle { display: flex; z-index: 1010; position: relative; }
+            .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+            .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+            .menu { position: fixed; top: 0; right: -100%; width: 75%; height: 100vh; background: rgba(7, 34, 26, 0.98); backdrop-filter: blur(10px); flex-direction: column; justify-content: flex-start !important; align-items: flex-start; padding-top: 90px; padding-left: 20px; padding-right: 20px; transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); box-shadow: -5px 0 15px rgba(0,0,0,0.5); z-index: 1000; overflow-y: auto; overflow-x: hidden; }
+            .menu.is-active { right: 0; }
+            .menu a { width: 100%; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); border-radius: 0; font-size: 16px; color: white; }
+            .dropdown { width: 100%; }
+            .dropdown:hover .dropdown-content { display: none; } 
+            .dropdown-submenu:hover .dropdown-submenu-content { display: none; }
+            .dropdown.is-active > .dropdown-content { display: block; position: static; background: transparent; box-shadow: none; padding: 0; margin-top: 0; min-width: 0 !important; width: 100%; }
+            .dropdown-submenu.is-active > .dropdown-submenu-content { display: block; position: static; background: transparent; box-shadow: none; padding: 0; margin-top: 0; min-width: 0 !important; width: 100%; }
+            .dropdown-content a { color: rgba(255,255,255,0.8) !important; padding-left: 15px !important; border-bottom: 1px dashed rgba(255,255,255,0.1); }
+            .dropdown-submenu-content a { padding-left: 30px !important; white-space: normal !important; line-height: 1.5 !important; }
+            .sub-header { background: transparent !important; color: #D4AF37 !important; border-bottom: none; font-size: 12px !important; padding: 15px 0 5px 15px !important; opacity: 0.7;}
+            .dropdown > a i, .dropdown-submenu > a i { transition: 0.3s ease; }
+            .dropdown.is-active > a > i { transform: rotate(180deg); }
+            .dropdown-submenu.is-active > a > i { transform: rotate(90deg); }
+            .content-body { padding: 30px 20px; }
+            .hero-profile h1 { font-size: 26px; margin-top: 10px; }
+            .profile-img { width: 250px; height: 290px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container navbar">
+            <a href="index.html" class="logo-container">
+                <img src="logo.png" alt="Logo La Tansa 2">
+                <div class="logo">Pondok Pesantren La Tansa <span>2</span></div>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="menu" id="nav-menu">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-trigger">Tentang <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="sejarah.html">Sejarah Berdirinya</a>
+                        <a href="pendiri.html">Profil Pendiri</a>
+                        <div class="dropdown-submenu">
+                            <a href="#" class="dropdown-trigger">Profil Pimpinan <i class="fa-solid fa-chevron-right"></i></a>
+                            <div class="dropdown-submenu-content">
+                                <a class="sub-header">Pimpinan Pondok</a>
+                                <a href="ky-faisal.html">- KH Achmad Faisal Hadziq S.Sos.I M.M</a>
+                                <a class="sub-header">Wakil Pimpinan Pondok</a>
+                                <a href="ky-dini.html">- Dr. KH Dini Arifian, S.E, M.M</a>
+                                <a href="ny-zakiyah.html">- Dr. Hj. Zakiyya Tunnufus, S.E., M.M.</a>
+                                <!-- Active diletakkan di sini -->
+                                <a href="ny-ilmi.html" class="active" style="background: #f4f7f5; color: #198754 !important; font-weight: 700 !important;">- Hj. Ilmi Albadiah, S.Kom., M,M.</a>
+                            </div>
+                        </div>
+                        <a href="visi-misi.html">Visi & Misi</a>
+                    </div>
+                </div>
+                <a href="program.html">Program</a>
+                <a href="galeri.html">Galeri</a>
+                <a href="pendaftaran.html">Alur Pendaftaran</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="profile-main">
+        <div class="container">
+            <div class="hero-profile" data-aos="fade-down">
+                <!-- Nanti pastikan file fotonya bernama ny-ilmi.png atau sesuaikan formatnya -->
+                <img src="ny-ilmi.png" alt="Hj. Ilmi Albadiah" class="profile-img" onerror="this.src='https://via.placeholder.com/300x350?text=Foto+Hj.+Ilmi'">
+                <h1 style="color: #0d3b2e;">Hj. Ilmi Albadiah, S.Kom., M.M.</h1>
+                <p style="color: #198754; font-weight: 600; font-size: 1.2rem;">Wakil Pimpinan Pondok Pesantren La Tansa 2</p>
+            </div>
+
+            <div class="content-body" data-aos="fade-up">
+                
+                <div class="coming-soon-box" data-aos="zoom-in">
+                    <i class="fa-solid fa-pen-nib" style="font-size: 24px; margin-bottom: 10px; color: #D4AF37;"></i><br>
+                    Detail profil dan biografi lengkap beliau saat ini sedang dalam proses penyusunan oleh tim redaksi.
+                </div>
+
+                <!-- TEMPLATE: NANTI TEKSNYA BISA DIGANTI JIKA SUDAH ADA -->
+                <h3 data-aos="fade-right"><i class="fa-solid fa-seedling" style="color: #198754;"></i> Latar Belakang & Pendidikan</h3>
+                <p>Beliau adalah figur yang memiliki peranan krusial di balik laju perkembangan Pondok Pesantren La Tansa 2. Bersama sang suami, K.H. Achmad Faisal Hadziq, S.Sos.I., M.M. (Pimpinan Pondok), beliau bahu-membahu dalam mengawal arah pendidikan serta menjaga nilai-nilai kepesantrenan agar senantiasa relevan dengan tuntutan zaman.</p>
+                <p>Latar belakang akademis beliau di bidang Ilmu Komputer (S.Kom.) dan Magister Manajemen (M.M.) memberikan corak tersendiri dalam pengelolaan pesantren, khususnya dalam mengintegrasikan sistem informasi dan administrasi modern di lingkungan pendidikan Islam.</p>
+
+                <h3 data-aos="fade-right"><i class="fa-solid fa-hand-holding-heart" style="color: #198754;"></i> Kiprah & Pengabdian</h3>
+                <p>Dalam kapasitasnya sebagai Wakil Pimpinan, kiprah beliau sangat dirasakan pada sektor pembinaan moral santriwati serta pengembangan kualitas sumber daya manusia (SDM) di pondok. Beliau dikenal sebagai pendidik yang memiliki ketekunan tinggi, memadukan pendekatan rasional-akademis dengan sentuhan kasih sayang seorang ibu.</p>
+                
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Pondok Pesantren La Tansa 2 | Website Resmi Terintegrasi</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, duration: 800 });
+
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('is-active');
+            navMenu.classList.toggle('is-active');
+        });
+
+        const dropdownTriggers = document.querySelectorAll('.dropdown > .dropdown-trigger');
+        dropdownTriggers.forEach(trigger => {
+            trigger.addEventListener('click', function(e) {
+                if(window.innerWidth <= 768) { e.preventDefault(); this.parentElement.classList.toggle('is-active'); }
+            });
+        });
+
+        const subDropdownTriggers = document.querySelectorAll('.dropdown-submenu > .dropdown-trigger');
+        subDropdownTriggers.forEach(trigger => {
+            trigger.addEventListener('click', function(e) {
+                if(window.innerWidth <= 768) { e.preventDefault(); this.parentElement.classList.toggle('is-active'); }
+            });
+        });
+    </script>
+</body>
+</html>
