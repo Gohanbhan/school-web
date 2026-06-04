@@ -134,7 +134,7 @@
                 transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
                 box-shadow: -5px 0 15px rgba(0,0,0,0.5); z-index: 1000;
                 overflow-y: auto;
-                /* FIX PENTING: Mencegah scroll / geser ke samping kanan pada menu */
+                /* Mencegah scroll / geser ke samping kanan pada menu */
                 overflow-x: hidden; 
             }
             .menu.is-active { right: 0; }
@@ -148,9 +148,9 @@
             .dropdown:hover .dropdown-content { display: none; } 
             .dropdown-submenu:hover .dropdown-submenu-content { display: none; }
             
-            /* Logic klik dropdown mobile */
-            .dropdown.is-active > .dropdown-content { display: block; position: static; background: transparent; box-shadow: none; padding: 0; margin-top: 0; border-radius: 0; }
-            .dropdown-submenu.is-active > .dropdown-submenu-content { display: block; position: static; background: transparent; box-shadow: none; padding: 0; margin-top: 0; }
+            /* Logic klik dropdown mobile - FIX: Hapus min-width bawaan desktop */
+            .dropdown.is-active > .dropdown-content { display: block; position: static; background: transparent; box-shadow: none; padding: 0; margin-top: 0; border-radius: 0; min-width: 0 !important; width: 100%; }
+            .dropdown-submenu.is-active > .dropdown-submenu-content { display: block; position: static; background: transparent; box-shadow: none; padding: 0; margin-top: 0; min-width: 0 !important; width: 100%; }
             
             /* Konten Dropdown Mobile */
             .dropdown-content a { color: rgba(255,255,255,0.8) !important; padding-left: 15px !important; border-bottom: 1px dashed rgba(255,255,255,0.1); font-size: 15px !important; }
