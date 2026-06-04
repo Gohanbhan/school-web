@@ -10,13 +10,17 @@
     <style>
         /* RESET & GLOBAL */
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; background: #fdfefe; color: #2b3a33; line-height: 1.8; overflow-x: hidden; font-size: 16px; padding-top: 100px; }
+        
+        /* FIX: Kunci mati agar tidak ada elemen yang jebol ke samping */
+        html, body { overflow-x: hidden !important; width: 100%; position: relative; }
+        
+        body { font-family: 'Poppins', sans-serif; background: #fdfefe; color: #2b3a33; line-height: 1.8; font-size: 16px; padding-top: 100px; }
         h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
         a { text-decoration: none; }
-        .container { width: 90%; max-width: 1200px; margin: auto; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
         /* ========================================= */
-        /* NAVBAR & MENU DESKTOP (Sama dengan Index) */
+        /* NAVBAR & MENU DESKTOP */
         /* ========================================= */
         nav { position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(13, 59, 46, 0.95); backdrop-filter: blur(15px); box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-bottom: none !important; }
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
@@ -61,46 +65,13 @@
         .unggulan-card h3 { font-size: 22px; margin-bottom: 15px; color: white; }
         .unggulan-card p { font-size: 15px; opacity: 0.9; }
 
-        /* ========================================= */
         /* AKREDITASI BERSINAR */
-        /* ========================================= */
         .lembaga-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 80px 0; }
-        .lembaga-card { 
-            background: white; 
-            border: none; 
-            padding: 60px 40px; 
-            border-radius: 30px; 
-            text-align: center; 
-            transition: 0.4s ease; 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.05); 
-        }
-        .lembaga-card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2); 
-        }
-        
-        .badge-akreditasi {
-            background: linear-gradient(90deg, #FFD700, #F39C12);
-            color: #0d3b2e;
-            font-weight: 800;
-            padding: 15px 45px;
-            border-radius: 50px;
-            display: inline-block;
-            margin-bottom: 30px;
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
-            text-transform: uppercase;
-            font-size: 18px;
-            letter-spacing: 1.5px;
-            animation: pulseGlow 2s infinite;
-        }
+        .lembaga-card { background: white; border: none; padding: 60px 40px; border-radius: 30px; text-align: center; transition: 0.4s ease; box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
+        .lembaga-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2); }
+        .badge-akreditasi { background: linear-gradient(90deg, #FFD700, #F39C12); color: #0d3b2e; font-weight: 800; padding: 15px 45px; border-radius: 50px; display: inline-block; margin-bottom: 30px; box-shadow: 0 0 25px rgba(255, 215, 0, 0.5); text-transform: uppercase; font-size: 18px; letter-spacing: 1.5px; animation: pulseGlow 2s infinite; }
         .badge-akreditasi i { margin-right: 8px; font-size: 16px; }
-        
-        @keyframes pulseGlow { 
-            0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); } 
-            70% { box-shadow: 0 0 0 20px rgba(255, 215, 0, 0); } 
-            100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); } 
-        }
-
+        @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(255, 215, 0, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); } }
         .lembaga-card h3 { font-size: 36px; color: #0d3b2e; margin-bottom: 20px; font-weight: 800; }
         .lembaga-card p { font-size: 16px; color: #666; line-height: 1.9; padding: 0 15px; }
 
@@ -110,87 +81,42 @@
         .card-kegiatan { background: white; padding: 35px; border-radius: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.03); border: 1px solid #f0f2f1; transition: 0.3s; }
         .card-kegiatan:hover { transform: translateY(-5px); border-color: #198754; box-shadow: 0 15px 30px rgba(25,135,84,0.1); }
         .card-kegiatan h4 { color: #198754; font-size: 22px; margin-bottom: 25px; display: flex; align-items: center; gap: 12px; border-bottom: 2px dashed #eef1f0; padding-bottom: 15px; }
-        
         .card-kegiatan ul { list-style: none; padding-left: 0; }
         .card-kegiatan ul li { margin-bottom: 15px; font-size: 15px; display: flex; align-items: flex-start; gap: 12px; color: #444; line-height: 1.6; }
         .card-kegiatan ul li i { color: #D4AF37; margin-top: 5px; font-size: 16px; flex-shrink: 0; }
         
         /* AGENDA PENEMPAAN DIRI */
         .agenda-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 40px; }
-        
-        .agenda-box { 
-            background: white; 
-            border-radius: 20px; 
-            padding: 35px 25px; 
-            position: relative; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04); 
-            border: 1px solid #eef1f0; 
-            transition: 0.4s ease; 
-            overflow: hidden; 
-            height: 100%; /* Agar semua kotak sama tingginya */
-        }
-        
-        .agenda-box::before { 
-            content: ''; 
-            position: absolute; 
-            top: 0; left: 0; width: 100%; height: 6px; 
-            background: linear-gradient(90deg, #198754, #146c43); 
-            transition: 0.4s ease; 
-        }
-        
-        .agenda-box:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 20px 40px rgba(13, 59, 46, 0.1); 
-            border-color: #198754; 
-        }
-        
+        .agenda-box { background: white; border-radius: 20px; padding: 35px 25px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid #eef1f0; transition: 0.4s ease; overflow: hidden; height: 100%; }
+        .agenda-box::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: linear-gradient(90deg, #198754, #146c43); transition: 0.4s ease; }
+        .agenda-box:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(13, 59, 46, 0.1); border-color: #198754; }
         .agenda-box:hover::before { background: linear-gradient(90deg, #FFD700, #F39C12); }
-        
-        .agenda-icon { 
-            width: 60px; height: 60px; 
-            background: #f4f7f5; 
-            color: #0d3b2e; 
-            border-radius: 15px; 
-            display: flex; justify-content: center; align-items: center; 
-            font-size: 26px; margin-bottom: 25px; 
-            transition: 0.4s ease; 
-        }
-        
+        .agenda-icon { width: 60px; height: 60px; background: #f4f7f5; color: #0d3b2e; border-radius: 15px; display: flex; justify-content: center; align-items: center; font-size: 26px; margin-bottom: 25px; transition: 0.4s ease; }
         .agenda-box:hover .agenda-icon { background: #0d3b2e; color: #D4AF37; transform: scale(1.1) rotate(5deg); }
-        
         .agenda-box h4 { font-size: 22px; color: #0d3b2e; margin-bottom: 20px; font-weight: 800; border-bottom: 2px dashed #eef1f0; padding-bottom: 10px;}
-        
         .agenda-list { list-style: none; padding: 0; margin: 0; }
         .agenda-list li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px; font-size: 14px; color: #444; line-height: 1.6; }
         .agenda-list li i { color: #198754; font-size: 15px; margin-top: 4px; flex-shrink: 0; }
-        
-        /* FIX: Tambahan khusus untuk sublist agar rapi dan tidak berdesakan */
         .list-text-wrapper { display: block; flex: 1; }
         .agenda-sublist { list-style: disc; padding-left: 20px; margin-top: 8px; color: #666; font-size: 13px; width: 100%; }
         .agenda-sublist li { display: list-item; margin-bottom: 5px; line-height: 1.4; }
-        .agenda-sublist li i { display: none; } /* Sembunyikan centang hijau di sublist */
-
-        @media (max-width: 992px) { .lembaga-grid { grid-template-columns: 1fr; } }
+        .agenda-sublist li i { display: none; }
 
         /* ========================================= */
-        /* RESPONSIVE & MOBILE NAVBAR (GARIS 3)      */
+        /* RESPONSIVE & MOBILE FIX                   */
         /* ========================================= */
         @media (max-width: 768px) {
             /* Navbar Layout */
-            .navbar { padding: 15px 5%; width: 100%; max-width: 100%; flex-direction: row !important; }
-            .logo-container { animation: none !important; z-index: 990; position: relative; width: auto; justify-content: flex-start; }
-            .logo-container img { height: 40px; }
-            .logo { font-size: 18px; }
+            .navbar { padding: 15px 5%; width: 100%; max-width: 100%; flex-direction: row !important; align-items: center; }
+            .logo-container { animation: none !important; z-index: 990; position: relative; max-width: 75%; gap: 10px; }
+            .logo-container img { height: 35px; } 
+            .logo { font-size: 13px; line-height: 1.3; white-space: normal; } 
 
-            /* Menampilkan Tombol Garis Tiga */
             .menu-toggle { display: flex; z-index: 1010; position: relative; }
-
-            /* Animasi Tombol Garis Tiga Menjadi 'X' */
             .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
             .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
             .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-            /* Menu Sidebar (Muncul dari kanan) */
             .menu { 
                 position: fixed; top: 0; right: -100%; width: 75%; height: 100vh; 
                 background: rgba(7, 34, 26, 0.98); 
@@ -199,45 +125,54 @@
                 padding-top: 90px; padding-left: 20px; padding-right: 20px;
                 transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
                 box-shadow: -5px 0 15px rgba(0,0,0,0.5); z-index: 1000;
-                overflow-y: auto;
-                /* Mencegah scroll / geser ke samping kanan pada menu */
-                overflow-x: hidden; 
+                overflow-y: auto; overflow-x: hidden; 
             }
             .menu.is-active { right: 0; }
-
-            /* Link Menu Mobile */
             .menu a { width: 100%; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); border-radius: 0; font-size: 16px; color: white; }
             .menu a:hover, .menu a.active { background: transparent; color: #D4AF37; padding-left: 5px; }
 
-            /* Dropdown Mobile */
             .dropdown { width: 100%; }
             .dropdown:hover .dropdown-content { display: none; } 
             .dropdown-submenu:hover .dropdown-submenu-content { display: none; }
-            
-            /* Logic klik dropdown mobile */
             .dropdown.is-active > .dropdown-content { display: block; position: static; background: transparent; box-shadow: none; padding: 0; margin-top: 0; border-radius: 0; min-width: 0 !important; width: 100%; }
             .dropdown-submenu.is-active > .dropdown-submenu-content { display: block; position: static; background: transparent; box-shadow: none; padding: 0; margin-top: 0; min-width: 0 !important; width: 100%; }
-            
-            /* Konten Dropdown Mobile */
             .dropdown-content a { color: rgba(255,255,255,0.8) !important; padding-left: 15px !important; border-bottom: 1px dashed rgba(255,255,255,0.1); font-size: 15px !important; }
             .dropdown-content a:hover { color: #D4AF37 !important; background: transparent !important; }
-            
-            /* Memaksa teks nama yang panjang turun ke bawah */
-            .dropdown-submenu-content a { 
-                padding-left: 30px !important; 
-                padding-right: 15px !important; 
-                display: block !important;        
-                white-space: normal !important;   
-                word-wrap: break-word !important; 
-                line-height: 1.5 !important;      
-            }
-            
+            .dropdown-submenu-content a { padding-left: 30px !important; padding-right: 15px !important; display: block !important; white-space: normal !important; word-wrap: break-word !important; line-height: 1.5 !important; }
             .sub-header { background: transparent !important; color: #D4AF37 !important; border-bottom: none; font-size: 12px !important; padding: 15px 0 5px 15px !important; opacity: 0.7;}
-            
-            /* Animasi rotasi panah saat dropdown terbuka */
             .dropdown > a i, .dropdown-submenu > a i { transition: 0.3s ease; }
             .dropdown.is-active > a > i { transform: rotate(180deg); }
             .dropdown-submenu.is-active > a > i { transform: rotate(90deg); }
+
+            /* ========================================= */
+            /* FIX UTAMA: MENCEGAH KONTEN KELUAR LAYAR   */
+            /* ========================================= */
+            
+            /* Ubah Grid menjadi Flex-Column agar menyusun ke bawah dengan rapi tanpa batas minimal width */
+            .unggulan-grid, .lembaga-grid, .grid-kegiatan, .agenda-wrapper {
+                display: flex !important;
+                flex-direction: column !important;
+                width: 100% !important;
+                gap: 20px !important;
+            }
+            
+            /* Paskan padding agar kotak tidak terlalu mepet dengan batas layar HP */
+            .content-wrap { 
+                padding: 25px 15px !important; 
+                width: 100% !important;
+            }
+            
+            /* Paskan padding dalam kotak konten */
+            .unggulan-card, .lembaga-card, .card-kegiatan, .agenda-box { 
+                width: 100% !important;
+                padding: 30px 20px !important; 
+                margin: 0 !important;
+            }
+            
+            /* Sesuaikan ukuran teks judul pada layar kecil */
+            .section-title h2 { font-size: 28px; }
+            .lembaga-card h3 { font-size: 26px; }
+            .badge-akreditasi { padding: 12px 25px; font-size: 14px; }
         }
     </style>
 </head>
@@ -407,7 +342,6 @@
                         <li><i class="fa-solid fa-circle-check"></i> PPKA (Pekan Perkenalan Khutbatul Arsy) & Pensi Santri</li>
                         <li><i class="fa-solid fa-circle-check"></i> WOLEST (Week Of Language Contest)</li>
                         
-                        <!-- FIX HTML: Bungkus div khusus list ini agar tidak menabrak ikon centang -->
                         <li>
                             <i class="fa-solid fa-circle-check"></i> 
                             <div class="list-text-wrapper">
